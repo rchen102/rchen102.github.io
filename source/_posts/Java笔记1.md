@@ -4,7 +4,7 @@ date: 2019-09-06 10:54:14
 categories: Java
 tags:
 ---
-Java学习笔记，用于复习巩固
+## Java基础
 
 ### 基本概念
 JRE(Java Runtime Environment): Java运行环境，与开发无关，包含JVM和Java类库
