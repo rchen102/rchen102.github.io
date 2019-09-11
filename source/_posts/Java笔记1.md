@@ -16,9 +16,10 @@ JDK(Java Development Kit): Java开发工具，包含另一个JRE，提供更多�
 - 垃圾收集(Garbage Collection）
 
 ### Java的工作方式
-源代码(.java) -> Javac编译(.class) -> JVM将字节码转换为机器码并运行
+    源代码(.java) -> Javac编译(.class) -> JVM将字节码转换为机器码并运行
 
 Java的编译不同于C,C++，由编译器Javac编译源码生成的.class文件中实际上是字节码(bytecode)，而非可以直接运行的机器码，JVM通过类加载器(Class-Loader)加载字节码，解释或者执行。
+
 Java通过字节码和JVM实现了跨平台的特性。
 
 > 编译型：源代码直接编译生成可执行的机器码；运行速度快，跨平台性差
