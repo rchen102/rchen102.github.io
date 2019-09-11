@@ -5,6 +5,10 @@ categories: Java
 tags:
 ---
 ## Java基础
+目录
+- 基本概念
+- Java特性
+- Java工作方式
 
 ### 基本概念
 JRE(Java Runtime Environment): Java运行环境，与开发无关，包含JVM和Java类库
