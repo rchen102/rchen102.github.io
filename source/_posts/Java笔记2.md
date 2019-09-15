@@ -26,6 +26,8 @@ Java的基本类型存储在stack中，存取速度快
 - boolean: 1位，布尔型，默认值`false`
 - char: 16位，Unicode字符，默认值`/u0000`
 
+<!-- more -->
+
 ```java
 public class Test {
     static boolean bool;
