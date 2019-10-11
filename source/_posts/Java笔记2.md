@@ -7,27 +7,49 @@ tags:
 ## Java语法
 __目录__
 Java规范
+Java注释
 Java数据类型
 Java变量类型
 
 __参考__
 [1] [Java菜鸟教程](https://www.runoob.com/java/java-tutorial.html) 
 [2] [JAVA 8大数据类型](https://blog.csdn.net/qq_28328381/article/details/81163856)
-[3] [阿里云大学 | Java学习路线 - Java语言基础](https://edu.aliyun.com/roadmap/java?spm=5176.13345299.1392477.3.63ddf153q7QkVf)
+[3] [阿里云大学 | 李兴华 - Java语言基础](https://edu.aliyun.com/roadmap/java?spm=5176.13345299.1392477.3.63ddf153q7QkVf)
 
 
 ### Java规范
+1. 通常一个`.java`文件里面只包含也只能有一个公共类`public class`，且类名与文件名相同
+2. 同时也允许包含其他非公共类，但编译时会每个类会生成自己的`.class`文件
+3. 主方法：程序的入口`public static void main(String[] args)`
 
+### Java注释
+1. 单行注释
+2. 多行注释(不常用)
+3. 文档注释
 
+```java
+// Note
+
+/* 
+ Note 
+ Note
+*/
+
+/**
+ * Note
+ */
+```
 
 ### Java数据类型
 __1. 基本数据类型__
-1. Java的基本数据类型共有8种，可以分为字符型、布尔型和数值型
+1. Java的基本数据类型共有8种，采用__数值传递__
 2. Java中的数值类型不存在无符号，取值范围固定，不依赖硬件环境或操作系统
 3. Java的基本类型存储在stack中，存取速度快
-- byte: 8位，默认值`0`
+
+主要分为3类，数值型，布尔型，字符型:
+- byte: 8位，默认值`0`,范围(-128, 127)
 - short: 16位，默认值`0`
-- int: 32位，默认值`0`
+- int: 32位，默认值`0`,范围(-2147483648, 2147483647)，
 - long: 64位，默认值`0L`
 - float: 32位，单精度，默认值`0.0f`
 - double: 64位，双精度，默认值`0.0d`
@@ -36,45 +58,18 @@ __1. 基本数据类型__
 
 <!-- more -->
 
-```java
-public class Test {
-    static boolean bool;
-    static byte by;
-    static char ch;
-    static double d;
-    static float f;
-    static int i;
-    static long l;
-    static short sh;
-    static String str;
- 
-    public static void main(String[] args) {
-        System.out.println("Bool :" + bool);
-        System.out.println("Byte :" + by);
-        System.out.println("Character:" + ch);
-        System.out.println("Double :" + d);
-        System.out.println("Float :" + f);
-        System.out.println("Integer :" + i);
-        System.out.println("Long :" + l);
-        System.out.println("Short :" + sh);
-        System.out.println("String :" + str);
-    }
-}
-Bool     :false
-Byte     :0
-Character:
-Double   :0.0
-Float    :0.0
-Integer  :0
-Long     :0
-Short    :0
-String   :null
-```
+Note:
+- 整数常量的默认类型是`int`
+- 描述日期时间或者是内存及文件大小使用`long`
+- 在进行二进制传输或进行编码转换的时候使用`byte`
+- 在进行中文处理的时候可以使用`char`
 
-__引用数据类型__
+__2. 引用数据类型__
 1. Java引用类型指向一个对象，指向对象的变量是引用变量，默认值为`null`
-2. Java创建对象实例时，将地址赋给引用变量，存储于stack，实例存储于heap
-3. 对象、数组都是引用数据类型
+2. Java创建对象实例时，将地址赋给引用变量，存储于`Stack`，实例存储于`Heap`
+3. 对象、数组都是引用数据类型，__内存传递__
+
+__3. 类型转化__
 
 ### Java变量类型
 __1. 局部变量__

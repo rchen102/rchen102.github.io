@@ -32,6 +32,8 @@ Java通过访问修饰符(Access modifiers)，控制类、变量、方法的访�
 - __protected__: 仅对同一package的class和所有sub-class可见。可以修饰：变量、方法
 - __public__: 对所有class可见。可以修饰：类、接口、变量、方法
 
+<!-- more -->
+
 ![Modifier](Java笔记3/Modifier.png)
 
 ### 非访问修饰符
