@@ -1,0 +1,100 @@
+---
+title: Java笔记5-面向对象2
+date: 2019-10-14 20:03:19
+categories:
+tags:
+---
+## Java面向对象2
+__目录__
+Java继承
+Java多态
+Java接口
+
+__参考__
+[1] [Java菜鸟教程](https://www.runoob.com/java/java-tutorial.html) 
+[2] [java提高篇(二)——理解java的三大特性之继承](https://www.cnblogs.com/chenssy/p/3354884.html)
+[4] [Java的private成员变量的继承问题](https://www.cnblogs.com/yulianggo/p/10417229.html)
+
+### Java继承
+- 继承(Inheritance)是面向对象的重要基础，也是Java三大特性之一
+- 继承允许子类继承父类的字段和方法，提高了代码的复用性(reuse)
+- Java使用关键字`extend`来实现继承
+- 继承具有向上转型的特点，子类与父类具有`is-a`关系，`Person p = new Student()`
+
+__1. 继承的特性__
+- 子类继承父类非private的属性、方法
+- 子类可以对父类进行拓展，增加新的字段方法，或对继承的方法进行重写override
+- Java不支持多继承(子类同时继承多个父类)，但支持多重继承
+
+<!-- more -->
+
+__2. 子类的构造__
+- 在一个子类被实例化时，会默认调用父类的构造方法进行初始化，之后再向子类层级完成构造
+- 当父类具有默认构造器时，子类无需显式调用，否则应在__第一行__使用`super()`来显式指定父类构造器
+
+__3. 关键字private和protected__
+- 子类继承父类非private的字段和方法，但是父类的private字段和方法实际上仍然存在
+- 子类可以通过`super.method()`调用父类的非private方法
+- 子类可以拥有父类同名的private方法，但是并不属于override
+- 可以使用protected让字段或变量对类和子类可见，对类的用户而言相当于private
+
+__4. 重写与重载__
+- Override重写，子类对父类允许访问方法的重新实现
+    + 形参列表: 必须不变
+    + 返回类型: 可以不同，但是必须是父类返回值的派生类(Java7及更高版本)
+    + 访问修饰符: 可以改变，但是不能比父类权限更低
+    + 异常: 可以抛出任何非强制异常，但不能抛出新的或更广的强制异常
+    + 声明为`final`的方法不能被重写
+    + 声明为`static`的方法不能被重写，但是能够再次声明
+    + 可以使用`super`调用父类被重写的方法
+- Overload重载，属于类的多态性的一个体现
+    + 形参列表: 必须改变(类型，个数)
+    + 返回类型: 可以不同
+    + 访问修饰符: 可以改变
+    + 异常: 可以声明新的或更广的检查异常
+
+```java
+class Person{
+    private String name;
+
+    public Person(String nameIn) {
+        this.name = nameIn;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    private void setName(String name) {
+        this.name = name;
+    }
+
+    public void printInfo() {
+        System.out.println("Name: " + this.name);
+    }
+
+    public Person getOne() {
+        return new Person("rchen102");
+    }
+}
+
+class Student extends Person {
+    private String school;
+
+    public Student(String nameIn, String schoolIn) {
+        super(nameIn);
+        this.school = schoolIn;
+    }
+
+    @Override
+    public void printInfo() {
+        super.printInfo(); // Call the overridden method of father
+        System.out.println("School: " + this.school);
+    }
+
+    @Override // Though return type is different, still work
+    public Student getOne() {
+        return new Student("rchen102", "BU");
+    }
+}
+```

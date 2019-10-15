@@ -1,10 +1,10 @@
 ---
-title: Java笔记3
+title: Java笔记3-运算符与修饰符
 date: 2019-09-14 17:37:10
 categories: Java
 tags:
 ---
-## Java语法
+## Java运算符与修饰符
 __目录__
 Java运算符
 Java访问修饰符
@@ -16,9 +16,9 @@ __参考__
 ### Java运算符
 与其他编程语言类似，Java支持基本的运算符
 - 算术运算符(Arithmetic Operator) `+,-,*,/,%`
-- 自加自减运算符(Increment/Decrement Operator) `++a,a--`，前缀自增/自减，先进行自增/自减运算，再进行表达式运算，后缀相反
+- 自加自减运算符(Increment/Decrement Operator) `++a,--a`，前缀自增/自减，先进行自增/自减运算，再进行表达式运算，后缀相反
 - 关系运算符(Relational Operator) `==,!=,>,<,>=,<=`
-- 逻辑运算符(Logical Operator) `&&,||,!`，具有短路特性
+- 逻辑运算符(Logical Operator) `&,&&,|,||,!`，具有短路特性
 - 位运算符(Bitwise Operator) `&,|,^,~,<<,>>,>>>`
 - 赋值运算符(Assignment Operator) `=,+=,-=,etc`
 - 条件/三目运算符(Ternary Operator) `?:`

@@ -1,13 +1,14 @@
 ---
-title: Java笔记1
+title: Java笔记1-基础介绍
 date: 2019-09-06 10:54:14
 categories: Java
 tags:
 ---
-## Java基础
+## Java基础介绍
 __目录__
 Java特性
 Java运行
+Java规范
 Java基本概念
 Java开发方向
 其他
@@ -43,6 +44,24 @@ __参考__
 
 ![不同类型语言](Java笔记1/language.jpg)
 
+### Java规范
+1. 通常一个`.java`文件里面只包含也只能有一个公共类`public class`，且类名与文件名相同
+2. 同时也允许包含其他非公共类，但编译时会每个类会生成自己的`.class`文件
+3. 主方法：程序的入口`public static void main(String[] args)`
+4. 三种注释方法
+```java
+// 单行注释
+
+/* 
+ 多行注释
+ (不常用)
+*/
+
+/**
+ * 文档注释
+ */
+```
+
 ### Java基本概念
 1. JRE(Java Runtime Environment): Java运行环境，与开发无关，包含JVM和Java类库  
 2. JDK(Java Development Kit): Java开发工具，包含另一个JRE，提供更多工具如编译器Javac  
@@ -54,5 +73,5 @@ __参考__
 3. Java企业级开发(EE): 构建分布式的企业系统平台
 
 ### 其他
-1. CLASSPATH: JVM执行时所需要的环境属性，用于定义类的加载路径
-2. PATH: 操作系统定义的环境属性，用于指定所有可执行程序的目录
+1. `CLASSPATH`: JVM执行时所需要的环境属性，用于定义类的加载路径
+2. `PATH`: 操作系统定义的环境属性，用于指定所有可执行程序的目录
