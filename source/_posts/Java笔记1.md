@@ -45,8 +45,8 @@ __参考__
 ![不同类型语言](Java笔记1/language.jpg)
 
 ### Java规范
-1. 通常一个`.java`文件里面只包含也只能有一个公共类`public class`，且类名与文件名相同
-2. 同时也允许包含其他非公共类，但编译时会每个类会生成自己的`.class`文件
+1. 一个源文件(`.java`)只能有一个public类，且类名与源文件名保持一致
+2. 一个源文件(`.java`)可以有多个非public类，编译时会每个类会生成自己的`.class`文件
 3. 主方法：程序的入口`public static void main(String[] args)`
 4. 三种注释方法
 ```java
