@@ -7,7 +7,6 @@ tags:
 ## Java运算符与修饰符
 __目录__
 Java运算符
-Java访问修饰符
 Java非访问修饰符
 
 __参考__
@@ -24,17 +23,6 @@ __参考__
 - 条件/三目运算符(Ternary Operator) `?:`
 
 Java运算符优先级：__单目乘除位关系，逻辑三目后赋值__
-
-### 访问修饰符
-Java通过访问修饰符(Access modifiers)，控制类、变量、方法的访问，支持4种不同的修饰符
-- __default__: 也称package-private，在同一package下可见。可以修饰：类、接口、变量、方法
-- __private__: 仅在同一class内可见。可以修饰：变量、方法
-- __protected__: 仅对同一package的class和所有sub-class可见。可以修饰：变量、方法
-- __public__: 对所有class可见。可以修饰：类、接口、变量、方法
-
-<!-- more -->
-
-![Modifier](Java笔记3/Modifier.png)
 
 ### 非访问修饰符
 除了访问修饰符外，Java也提供了一些非访问修饰符(Non-access modifiers)，实现其他的功能
