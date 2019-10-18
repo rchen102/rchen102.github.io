@@ -8,6 +8,7 @@ tags:
 __目录__
 Java数据类型
 Java变量类型
+代码块
 
 __参考__
 [1] [Java菜鸟教程](https://www.runoob.com/java/java-tutorial.html) 
@@ -95,6 +96,65 @@ __3. 类变量__
 - 静态变量通常与`final`配合用于声明常量，名称一般使用大写字母
 - 类变量具有默认值，与实例变量相似
 
+### 代码块
+代码块(code block): 通常指由`{}`所包围的一块代码
+
+__1. 普通代码块__
+- 可以用于对复杂或较长的方法进行切割分块，防止变量名冲突(不常用)
+```java
+public void test() {
+    {
+        int num = 1;
+    }
+    {
+        int num = 10;
+    }
+}
+
+```
+
+__2. 构造代码块__
+- Instance Initialization Block
+- 通常放置于构造器代码前，在实例创建时执行，且在构造器之前执行
+```java
+class Test {
+    {
+        System.out.println("IIB Block1");
+    }
+    {
+        System.out.println("IIB Block2");
+    }
+    Test() {
+        System.out.println("Constructor Called");
+    }
+}
+
+Output:
+IIB Block1
+IIB Block2
+Constructor Called
+```
+
+__3. 静态代码块__
+- Static Block
+- 由`static`修饰的代码块，通常用于静态初始化
+- 只在该类第1次被实例化或第1次访问该类的静态成员时执行1次，先于构造块
+```java
+class Test {
+    static {
+        System.out.println("Static Block");
+    }
+    {
+        System.out.println("IIB Block");
+    }
+    Test() {
+        System.out.println("Constructor Called");
+    }
+}
+```
+
+__4. 同步代码块__
+- to do
 
 
 
