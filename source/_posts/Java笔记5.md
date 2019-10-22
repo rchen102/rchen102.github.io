@@ -1,7 +1,7 @@
 ---
 title: Java笔记5-面向对象2
 date: 2019-10-14 20:03:19
-categories:
+categories: Java
 tags:
 ---
 ## Java面向对象2

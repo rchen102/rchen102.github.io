@@ -1,7 +1,7 @@
 ---
 title: Java笔记6-面向对象3
 date: 2019-10-14 22:14:51
-categories:
+categories: Java
 tags:
 ---
 ## Java面向对象3

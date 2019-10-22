@@ -1,14 +1,14 @@
 ---
 title: Java笔记7
 date: 2019-10-21 21:58:06
-categories:
+categories: Java
 tags:
 ---
 ## Java String
 __目录__
 String特性
 StirngBuilder和StringBuffer
-String基本方法
+String使用
 
 
 
@@ -62,27 +62,56 @@ str += "!";  // "!"开辟一次空间，"Hello World!"开辟一次空间
 
 
 
-### String基本方法
+### String使用
+__1. 类型转换__
+```java
+/**** char ****/
+String str = String.valueOf(char ch);
+String str = new String(char[] ch);
+
+char ch = str.charAt(int idx);
+char[] ch = str.toCharArray();
+
+/**** int ****/
+String str = String.valueOf(int num); // best
+String str = "" + num; 
+
+int num = Integer.parseInt(str);
+```
+
+__2. 常用操作__
 ```java
 str.length();                     // length of string
-str.charAt(idx);                  // character at index
-str.indexOf(char, idx(optional))  // first show up after idx
-str.indexOf(string)               // first show up
+
+/******** Truncate ********/
 str.substring(i, j)               // return [i ..  j-1]   
 str.substring(k)                  // return [k…end-1]
 
+/******** Transform ********/
 str.toUpperCase()                 // change to upper case
 str.toLowerCase()                 // change to lower case
-str.replace(str1, str2)           // replace str1 with str2
-str.trim()                        // delete space in start and end
-str.split()                       // return String[], "." -> "\\." "|" -> "\\|"
-                                  // escape character 转义字符 
 
-str.startsWith(str)               // check whether the str starts with str
-str.endWith(str)                  // check whether the str ends with str
-str.contains(str)                 // check whether the str contains with str
+str.replaceAll(str1, str2)        // replace str1 with str2 (str1 can be regex)
+str.replaceFirst(str1, str2)      // only replace first shows up
+str.replace(oldCh, newCh)         // replace for character
+
+str.trim()                        // remove leading and trailing space
+str.split(regex)                  // return String[]
+str.split(regex, int limit)       // limit: the result threshold
+                                  // escape character 转义字符 
+                                  // "." -> "\\." "|" -> "\\|"
+
+/******** Compare ********/
 str.equals(str)                   // check for content equal, do not use ==
-str.equalsIgnoreCase(str)         // do equals but ignore case (upper, lower)
+str.equalsIgnoreCase(str)
+str.compareTo(str2)               // 0: euqal; >0: str > str2; <0: str < str2
+str.compareToIgnoreCase(str2)
+
+/******** Search ********/
+str.indexOf(str)                  // return idx where str first show up, else -1   
+str.contains(str)                 // return indexOf(str) >= 0
+str.startsWith(str)               // check whether the str starts with str
+str.endsWith(str)                 // check whether the str ends with str
 ```
 
 
