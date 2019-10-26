@@ -27,5 +27,28 @@ __1. 多态的优点/目的__
 
 __2. 多态的实现方式__
 - 方法重载与重写
-- 接口
-- 抽象类和抽象方法
+- 对象的向上转型、向下转型
+    + 接口
+    + 抽象类(抽象方法)
+
+__3. 注意__
+- 使用向下转型时，需要进行强制类型转换  
+  因此需要预防`ClassCastException`，使用`instanceof`
+```java
+class Person {
+    //
+}
+
+class Student extends Person {
+    //
+}
+
+Person stu = new Student();
+System.out.println(stu instanceof Person);   // false
+System.out.println(stu instanceof Student);  // true
+
+Person per = null;
+Student stu = null;
+System.out.println(per instanceof Person);   // false
+System.out.println(stu instanceof Student);  // false
+```
