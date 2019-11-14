@@ -1,7 +1,8 @@
 ---
-title: Java笔记3-运算符与修饰符
+title: Java基础3-运算符与修饰符
 date: 2019-09-14 17:37:10
-categories: Java
+categories: 
+    - [Java, Java基础]
 tags:
 ---
 ## Java运算符与修饰符

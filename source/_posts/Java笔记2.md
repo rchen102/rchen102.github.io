@@ -1,7 +1,8 @@
 ---
-title: Java笔记2-数据类型与变量类型
+title: Java基础2-数据类型与变量类型
 date: 2019-09-06 19:09:08
-categories: Java
+categories: 
+    - [Java, Java基础]
 tags:
 ---
 ## Java数据类型与变量类型

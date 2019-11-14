@@ -1,7 +1,8 @@
 ---
-title: Java笔记7-面向对象之抽象类与接口
+title: Java面向对象4-抽象类与接口
 date: 2019-10-21 21:58:06
-categories: Java
+categories: 
+    - [Java, Java面向对象]
 tags:
 ---
 ## Java抽象类与接口

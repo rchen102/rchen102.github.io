@@ -1,7 +1,8 @@
 ---
-title: Java笔记5-面向对象之继承
+title: Java面向对象2-继承
 date: 2019-10-14 20:03:19
-categories: Java
+categories: 
+    - [Java, Java面向对象]
 tags:
 ---
 ## Java继承

@@ -1,7 +1,8 @@
 ---
-title: Java笔记6-面向对象之多态
+title: Java面向对象3-多态
 date: 2019-10-14 22:14:51
-categories: Java
+categories: 
+    - [Java, Java面向对象]
 tags:
 ---
 ## Java多态

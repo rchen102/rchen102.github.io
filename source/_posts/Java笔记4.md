@@ -1,7 +1,8 @@
 ---
-title: Java笔记4-面向对象之封装
+title: Java面向对象1-封装
 date: 2019-10-10 11:21:14
-categories: Java
+categories: 
+    - [Java, Java面向对象]
 tags:
 ---
 ## Java封装

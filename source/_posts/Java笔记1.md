@@ -1,7 +1,8 @@
 ---
-title: Java笔记1-基础介绍
+title: Java基础1-介绍
 date: 2019-09-06 10:54:14
-categories: Java
+categories: 
+    - [Java, Java基础]
 tags:
 ---
 ## Java基础介绍
