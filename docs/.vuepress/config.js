@@ -1,7 +1,7 @@
 module.exports = {
     title: 'rchen102\'s wiki',
     description: '个人CS知识记录分享博客',
-    base: '/wiki/',
+    base: '/',
     head: [
         ['link', {rel: 'icon', href: '/img/helloworld.jpg'}]
     ],
