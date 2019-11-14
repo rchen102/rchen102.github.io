@@ -23,5 +23,5 @@
   "homepage": "https://github.com/rchen102/rchen102.github.io#readme",
   "devDependencies": {
     "vuepress": "latest"
-  },
+  }
 }
