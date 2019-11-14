@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/rchen102/rchen102.github.io/issues"
   },
-  "homepage": "https://github.com/rchen102/rchen102.github.io#readme"
+  "homepage": "https://github.com/rchen102/rchen102.github.io#readme",
+  "devDependencies": {
+    "vuepress": "latest"
+  },
 }
