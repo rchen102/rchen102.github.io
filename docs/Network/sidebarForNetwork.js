@@ -1,0 +1,11 @@
+module.exports = [
+	{
+	  title:'计算机网络',
+	  collapsable: true,
+	  children:[
+		'/Network/notes/1 计算机网络概述',
+		'/Network/notes/2 物理层',
+		'/Network/notes/3 数据链路层',
+	  ]
+	},
+]

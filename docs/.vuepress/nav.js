@@ -1,6 +1,6 @@
 module.exports = [
     {
-        text: 'Java',
+        text: 'Java学习',
         items: [
             {
                 text: 'JavaSE',
@@ -16,5 +16,6 @@ module.exports = [
             }
         ]
     },
-    { text: '关于', link: '/about/'}
+    { text: '数据结构与算法', link: '/DSA/'},
+    { text: '计算机网络', link: '/Network/'}
 ]

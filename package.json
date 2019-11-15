@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/rchen102/rchen102.github.io#readme",
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.2.0",
     "vuepress": "latest"
   }
 }
