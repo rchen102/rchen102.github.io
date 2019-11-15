@@ -31,7 +31,7 @@ Java通过字节码和JVM实现了跨平台的特性。
 弱类型: 偏向于容忍隐式类型转换(C, C++, JS)
 :::
 
-![不同类型语言](Java笔记1/language.jpg)
+![不同类型语言](/img/language.jpg)
 
 ## Java规范
 1. 一个源文件(`.java`)只能有一个public类，且类名与源文件名保持一致
