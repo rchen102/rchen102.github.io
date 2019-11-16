@@ -5,7 +5,7 @@ categories:
     - [Java, Java基础]
 tags:
 ---
-## Java运算符
+## 运算符
 与其他编程语言类似，Java支持基本的运算符
 - 算术运算符(Arithmetic Operator) `+,-,*,/,%`
 - 自加自减运算符(Increment/Decrement Operator) `++a,--a`，前缀自增/自减，先进行自增/自减运算，再进行表达式运算，后缀相反
