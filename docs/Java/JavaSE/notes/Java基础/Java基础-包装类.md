@@ -8,8 +8,7 @@ tags:
 ## 介绍
 `Object`类型可以保存所有的引用数据类型，在JDK1.5之后，`Object`类型也可以「保存」基本数据类型，依据的就是包装类
 
-::: tip 提示
-**基本数据类型**与**引用数据类型**差别
+::: tip 基本数据类型与引用数据类型差别
 - 基本数据类型使用值传递
 - 引用数据类型使用地址传递「引用传递」(本质实际上还是值传递，只不过传递的值是地址)
 :::
@@ -71,9 +70,9 @@ int num = obj;    // 自动拆箱
 
 ### Integer包装类
 :::warning 注意
-使用**Integer**包装类的时候需要注意，如果直接赋值的数据范围在`[-128,127]`，Java不会创建新的**Integer**对象
+使用`Integer`包装类的时候需要注意，如果直接赋值的数据范围在`[-128,127]`，Java不会创建新的`Integer`对象
 
-原因在于JDK1.7之后，Java给**Integer**类设置了`[-128,127]`的静态缓存
+原因在于JDK1.7之后，Java给`Integer`类设置了`[-128,127]`的静态缓存
 :::
 
 ```java{2,5}
@@ -88,24 +87,61 @@ public static Integer valueOf(int i) {
 }
 ```
 
-
 ### Double/Float包装类
 `Double`与`Float`包装类没有类似`Integer`的缓存机制
 
 :::warning 注意
 使用包装类直接赋值的自动装箱操作时，也需要考虑数值对应的数据类型
 
-如果要使用**Float**直接赋值的自动装箱，需要先将数据转化为**float**型
+如果要使用`Float`直接赋值的自动装箱，需要先将数据转化为`float`型
 :::
 
 ```java{2}
-Float obj = 1.2;   // Error 
+Float obj = 1.2;   // Error, since default type is double 
 Floar obj = 1.2F;  // Correct
 ```
 
 ### 包装类与Object类
-`Object`类真正可以实现接收**全部**数据类型的参数统一功能
+包装类使得`Object`类真正可以实现接收**全部**数据类型的参数统一功能
 ```java
 Object obj = 1.5;           // 自动装箱Double，Double向上转型
 double num = (Double)obj;   // Object向下转型，Double自动拆箱
 ```
+
+## 数据转换
+包装类提供了一项非常重要的功能，即将**字符串类型**数据转为**基本数据类型**
+
+转换过程中，如果字符串中的内容格式有错误，或者包含了非数字内容(针对数值型)，会产生`NumberFormatException`
+
+```java{1,8,13}
+// Integer
+public static int parseInt(String s); 
+String str1 = "2.5";
+String str2 = "20";
+int num1 = Integer.parseInt(str1);    // NumberFormatException
+int num2 = Integer.parseInt(str2);    // num2 = 20
+
+// Double
+public static double parseDouble(String s);
+String str = 100;
+double num = Double.parseDouble(str); // num = 100.00
+
+// Boolean
+public static boolean parseBoolean(String s);
+String str1 = "true";
+String str2 = "xyz";
+boolean flag1 = Boolean.parseBoolean(str1); // true
+boolean flag2 = Boolean.parseBoolean(str2); // false, for wrong format, return false
+```
+
+::: warning 注意
+`Character`包装类不存在类似`parseChar()`，因为`String`类中含有`charAt()`方法
+:::
+
+::: tip 基本数据类型->字符串
+- 任何基本数据类型都可以通过`+`与`""`连接转为字符串(产生垃圾低效)
+- 使用`String`提供的`valueOf()`类方法，接收任意类型(包括`char[]`)
+:::
+
+## 参考
+[1] [阿里云大学 | 李兴华 - Java语言基础](https://edu.aliyun.com/roadmap/java?spm=5176.13345299.1392477.3.63ddf153q7QkVf)

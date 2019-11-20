@@ -14,7 +14,7 @@ module.exports = {
         repoLabel: 'GitHub',
         nav: require('./nav.js'),
         sidebar: require('./sidebar.js'),
-        sidebarDepth: 1,
+        sidebarDepth: 2,
         lastUpdated: 'Last Updated',
         smoothScroll: true,
         searchMaxSuggestoins: 10,

@@ -6,6 +6,7 @@ module.exports = [
 		'/Java/JavaSE/notes/Java基础/Java基础-介绍',
 		'/Java/JavaSE/notes/Java基础/Java基础-数据类型与变量类型',
 		'/Java/JavaSE/notes/Java基础/Java基础-运算符与修饰符',
+		'/Java/JavaSE/notes/Java基础/Java基础-字符串',
 		'/Java/JavaSE/notes/Java基础/Java基础-包装类',
 	  ]
 	},

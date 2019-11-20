@@ -156,7 +156,7 @@ class Test {
 - to do
 
 ## 参考
-[1] [Java菜鸟教程](https://www.runoob.com/java/java-tutorial.html)
+[1] [Java菜鸟教程](https://www.runoob.com/java/java-basic-datatypes.html)
 
 [2] [JAVA 8大数据类型](https://blog.csdn.net/qq_28328381/article/details/81163856)
 
