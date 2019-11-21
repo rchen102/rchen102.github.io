@@ -6,11 +6,9 @@ categories:
 tags:
 ---
 ## Java继承
-继承(Inheritance)是面向对象的重要基础，也是Java三大特性之一
-
-继承允许子类继承父类的属性和方法，提高了代码的复用性(reuse)
-
-继承具有向上转型的特点，子类与父类具有`is-a`关系，`Person p = new Student()`
+- 继承(Inheritance)是面向对象的重要基础，也是Java三大特性之一
+- 继承允许子类继承父类的属性和方法，提高了代码的复用性(reuse)
+- 继承具有向上转型的特点，子类与父类具有`is-a`关系，`Person p = new Student()`
 
 ## 特性
 - 子类继承父类全部内容，但是部分属于显式继承，部分隐式继承  
@@ -90,6 +88,8 @@ class Student extends Person {
 ```
 
 ## 参考
-[1] [Java菜鸟教程](https://www.runoob.com/java/java-tutorial.html) 
+[1] [Java菜鸟教程](https://www.runoob.com/java/java-tutorial.html)
+
 [2] [java提高篇(二)——理解java的三大特性之继承](https://www.cnblogs.com/chenssy/p/3354884.html)
+
 [3] [Java的private成员变量的继承问题](https://www.cnblogs.com/yulianggo/p/10417229.html)

@@ -42,6 +42,12 @@ Java通过访问修饰符(Access modifiers)，控制类、变量、方法的访�
 - __protected__: 仅对同一package的class和所有sub-class可见。可以修饰：变量、方法
 - __public__: 对所有class可见。可以修饰：类、接口、变量、方法
 
+::: warning 注意
+`default`指的是默认情况下，即不加任何访问修饰符时的访问控制状态
+
+不能直接使用`default`作为访问修饰符，`default`关键词实际上用于接口方法定义
+:::
+
 ![Modifier](/img/Modifier.png)
 
 ```java

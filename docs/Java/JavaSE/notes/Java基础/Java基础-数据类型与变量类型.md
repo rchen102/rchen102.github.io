@@ -6,7 +6,6 @@ categories:
 tags:
 ---
 ## 数据类型
-
 Java中的数据类型主要分为两类
 - 基本数据类型(Primitive Type)
 - 引用数据类型(Reference Type)
