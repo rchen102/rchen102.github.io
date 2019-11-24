@@ -5,7 +5,7 @@ categories:
     - [Java, Java面向对象]
 tags:
 ---
-## Java继承
+## 继承
 - 继承(Inheritance)是面向对象的重要基础，也是Java三大特性之一
 - 继承允许子类继承父类的属性和方法，提高了代码的复用性(reuse)
 - 继承具有向上转型的特点，子类与父类具有`is-a`关系，`Person p = new Student()`

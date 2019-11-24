@@ -14,10 +14,11 @@ module.exports = [
 	  title:'面向对象',
 	  collapsable: true,
 	  children:[
-		'/Java/JavaSE/notes/Java面向对象/Java面向对象1',
-		'/Java/JavaSE/notes/Java面向对象/Java面向对象2',
-		'/Java/JavaSE/notes/Java面向对象/Java面向对象3',
-		'/Java/JavaSE/notes/Java面向对象/Java面向对象4',
+		'/Java/JavaSE/notes/Java面向对象/Java面向对象-封装',
+		'/Java/JavaSE/notes/Java面向对象/Java面向对象-继承',
+		'/Java/JavaSE/notes/Java面向对象/Java面向对象-多态',
+		'/Java/JavaSE/notes/Java面向对象/Java面向对象-抽象类与接口',
+		'/Java/JavaSE/notes/Java面向对象/Java面向对象-泛型',
 	  ]
 	}
 ]

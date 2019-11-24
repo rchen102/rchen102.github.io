@@ -25,7 +25,7 @@ __对象__: 对象根据类创建，是类的一个实例
 - `this()`: 调用本类的构造方法，只能放在构造方法首行，且只能调用一次
 - 实例对象调用自身方法时，实例对象自身的引用会被作为隐式参数传入
 
-## Java封装
+## 封装
 封装(Encapsulation)是Java面向对象三大特性之一
 
 主要思想：__需要隐藏的隐藏，需要暴露的暴露__
@@ -48,7 +48,13 @@ Java通过访问修饰符(Access modifiers)，控制类、变量、方法的访�
 不能直接使用`default`作为访问修饰符，`default`关键词实际上用于接口方法定义
 :::
 
-![Modifier](/img/Modifier.png)
+| |  default  | private | protected | public |
+| :--: | :--: | :--: | :--: | :--: |
+| Same class |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+| Same package, subclass |:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|
+| Same package, non-subclass |:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|
+| Different package, subclass |:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|
+| Different package, non-subclass |:x:|:x:|:x:|:heavy_check_mark:|
 
 ```java
 public class Student {
