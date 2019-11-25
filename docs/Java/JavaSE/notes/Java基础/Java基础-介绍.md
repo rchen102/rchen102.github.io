@@ -35,7 +35,7 @@ Java通过字节码和JVM实现了跨平台的特性。
 
 ## Java规范
 1. 一个源文件(`.java`)只能有一个public类，且类名与源文件名保持一致
-2. 一个源文件(`.java`)可以有多个非public类，编译时会每个类会生成自己的`.class`文件
+2. 一个源文件(`.java`)可以有多个非public类（实际上就是`default`权限，只允许同一个包下的类访问），编译时会每个类会生成自己的`.class`文件
 3. 主方法：程序的入口`public static void main(String[] args)`
 4. 三种注释方法
 

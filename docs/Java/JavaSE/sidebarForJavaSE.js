@@ -19,6 +19,7 @@ module.exports = [
 		'/Java/JavaSE/notes/Java面向对象/Java面向对象-多态',
 		'/Java/JavaSE/notes/Java面向对象/Java面向对象-抽象类与接口',
 		'/Java/JavaSE/notes/Java面向对象/Java面向对象-泛型',
+		'/Java/JavaSE/notes/Java面向对象/Java面向对象-包',
 	  ]
 	}
 ]
