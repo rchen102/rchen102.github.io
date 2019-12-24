@@ -111,7 +111,7 @@ public void processPoint(Point<?> p) {
 
 ```java
 class Point {
-    public static <T> T[] print(T num) {
+    public static <T> void print(T num) {
         System.out.println(num);
     }
 }
