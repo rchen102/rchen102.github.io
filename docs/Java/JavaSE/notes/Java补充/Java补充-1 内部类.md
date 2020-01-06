@@ -29,7 +29,7 @@ class Out {
     }
 }
 
-Out.In in = new Out().new In();
+Out.In in = new Out().new In();         // 如果内部类使用了private，则无法如此使用
 ```
 
 ## 内部接口
