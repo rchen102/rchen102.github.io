@@ -68,7 +68,7 @@ class Test {
 ```
 
 ## 同步代码块
-// TODO
+见[Java多线程编程](../Java高级/Java高级-多线程编程3)
 
 ## 参考
 [1] [阿里云大学 | 李兴华 - Java语言基础](https://edu.aliyun.com/roadmap/java?spm=5176.13345299.1392477.3.63ddf153q7QkVf)

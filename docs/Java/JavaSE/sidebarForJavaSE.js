@@ -46,6 +46,7 @@ module.exports = [
 	  children:[
 	  	'/Java/JavaSE/notes/Java高级/Java高级-多线程编程1',
 	  	'/Java/JavaSE/notes/Java高级/Java高级-多线程编程2',
+	  	'/Java/JavaSE/notes/Java高级/Java高级-多线程编程3',
 	  ]
 	},
 ]

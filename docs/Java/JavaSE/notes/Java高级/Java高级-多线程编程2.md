@@ -57,5 +57,46 @@ public void interrupt();            // 中断该线程
 public boolean isInterrupted();     // 测试该线程是否被中断
 ```
 
+## 线程强制执行
+程序中存在若干线程时，一般都是交替执行，若某个线程特别紧急，需要优先执行，则可以使用线程强制执行
+
+```java
+public final void join() throws InterruptedException;   // 等待直到线程执行完毕
+public final void join​(long millis) throws InterruptedException;   // 最多等待若干毫秒
+public final void join​(long millis, int nanos) throws InterruptedException;
+```
+
+## 线程礼让
+礼让只礼让一次，随后继续按照调度方案进行调度
+
+```java
+/* A hint to the scheduler that the current thread 
+ * is willing to yield its current use of a processor.
+ * The scheduler is free to ignore this hint.
+ */
+public static void yield();
+```
+
+## 线程优先级
+CPU将优先调度优先级更高的线程，`Thread`类中定义有线程优先级的操作方法
+
+主线程的优先级即默认优先级，并没有什么特殊处理
+
+```java
+public final void setPriority​(int newPriority);    // 设置优先级
+public final int getPriority();                    // 获取优先级
+
+// 三个优先级常量
+public static final int MIN_PRIORITY;   // 1
+public static final int MAX_PRIORITY;   // 10
+public static final int NORM_PRIORITY;  // 5 default priority
+```
+
+## 参考
+[1] [阿里云大学 | 李兴华 - Java语言基础](https://edu.aliyun.com/roadmap/java?spm=5176.13345299.1392477.3.63ddf153q7QkVf)
+
+
+
+
 
 
