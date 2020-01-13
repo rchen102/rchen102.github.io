@@ -16,6 +16,7 @@ module.exports = [
             }
         ]
     },
+    { text: '数据库', link: '/DB/'},
     { text: '数据结构与算法', link: '/DSA/'},
     { text: '计算机网络', link: '/Network/'},
     { text: '关于', link: '/About/'}
