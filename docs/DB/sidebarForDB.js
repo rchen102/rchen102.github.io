@@ -10,6 +10,7 @@ module.exports = [
 		'/DB/notes/MySQL/MySQL-4 DDL',
 		'/DB/notes/MySQL/MySQL-5 DML',
 		'/DB/notes/MySQL/MySQL-6 DQL',
+		'/DB/notes/MySQL/MySQL-7 约束',
 	  ]
 	}, 
 	{
