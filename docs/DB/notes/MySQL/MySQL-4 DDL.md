@@ -1,5 +1,5 @@
 ---
-title: DDL语句-操作数据库、表
+title: DDL语句-操作数据库和表
 date: 2020-01-09 19:26:14
 categories: 
 tags:
