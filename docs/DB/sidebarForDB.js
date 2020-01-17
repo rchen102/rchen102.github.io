@@ -11,6 +11,9 @@ module.exports = [
 		'/DB/notes/MySQL/MySQL-5 DML',
 		'/DB/notes/MySQL/MySQL-6 DQL',
 		'/DB/notes/MySQL/MySQL-7 约束',
+		'/DB/notes/MySQL/MySQL-8 多表关系介绍',
+		'/DB/notes/MySQL/MySQL-9 范式',
+		'/DB/notes/MySQL/MySQL-10 多表查询',
 	  ]
 	}, 
 	{
