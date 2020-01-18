@@ -17,11 +17,13 @@ module.exports = [
 		'/DB/notes/MySQL/MySQL-11 多表查询',
 		'/DB/notes/MySQL/MySQL-12 事务',
 	  ]
-	}, 
+	},
 	{
 	  title:'JDBC',
 	  collapsable: true,
 	  children:[
+	  	'/DB/notes/JDBC/JDBC-1 基本介绍与上手',
+	  	'/DB/notes/JDBC/JDBC-2 主要类详解',
 	  ]
 	}
 ]
