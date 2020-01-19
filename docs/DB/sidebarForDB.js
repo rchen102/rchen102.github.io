@@ -24,6 +24,7 @@ module.exports = [
 	  children:[
 	  	'/DB/notes/JDBC/JDBC-1 基本介绍与上手',
 	  	'/DB/notes/JDBC/JDBC-2 主要类详解',
+	  	'/DB/notes/JDBC/JDBC-3 数据库连接池',
 	  ]
 	}
 ]
