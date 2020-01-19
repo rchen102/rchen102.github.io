@@ -23,7 +23,7 @@ module.exports = [
 	  ]
 	},
 	{
-	  title:'常用类与集合',
+	  title:'常用类',
 	  collapsable: true,
 	  children:[
 	  	'/Java/JavaSE/notes/Java常用类/Java常用类-1 字符串',
@@ -38,15 +38,6 @@ module.exports = [
 		'/Java/JavaSE/notes/Java补充/Java补充-1 内部类',
 		'/Java/JavaSE/notes/Java补充/Java补充-2 Lambda表达式',
 		'/Java/JavaSE/notes/Java补充/Java补充-3 方法引用',
-	  ]
-	},
-	{
-	  title:'进阶',
-	  collapsable: true,
-	  children:[
-	  	'/Java/JavaSE/notes/Java高级/Java高级-多线程编程1',
-	  	'/Java/JavaSE/notes/Java高级/Java高级-多线程编程2',
-	  	'/Java/JavaSE/notes/Java高级/Java高级-多线程编程3',
 	  ]
 	},
 ]

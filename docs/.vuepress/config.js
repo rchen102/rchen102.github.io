@@ -1,6 +1,6 @@
 module.exports = {
     title: 'rchen102\'s wiki blog',
-    description: '个人CS知识记录分享博客',
+    description: '个人知识记录分享博客',
     base: '/',
     head: [
         ['link', {rel: 'icon', href: '/img/helloworld.jpg'}]

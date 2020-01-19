@@ -3,16 +3,12 @@ module.exports = [
         text: 'Java学习',
         items: [
             {
-                text: 'JavaSE',
-                items: [
-                    {text: '逻辑基础', link: '/Java/JavaSE/'}
-                ]
+                text: 'Java基础',
+                link: '/Java/JavaSE/'
             },
             {
-                text: 'JavaEE',
-                items: [
-                    {text: 'to do', link: '/Java/JavaEE/'},    
-                ]
+                text: 'Java高级',
+                link: '/Java/JavaH/'
             }
         ]
     },
