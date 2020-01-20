@@ -25,10 +25,12 @@ module.exports = [
 	{
 	  title:'常用类',
 	  collapsable: true,
+	  sidebarDepth: 1,
 	  children:[
-	  	'/Java/JavaSE/notes/Java常用类/Java常用类-1 字符串',
-		'/Java/JavaSE/notes/Java常用类/Java常用类-2 包装类',
-		'/Java/JavaSE/notes/Java常用类/Java常用类-3 枚举类',
+	  	'/Java/JavaSE/notes/Java常用类/Java常用类-String',
+	  	'/Java/JavaSE/notes/Java常用类/Java常用类-StringBuffer和StringBuilder',
+		'/Java/JavaSE/notes/Java常用类/Java常用类-包装类',
+		'/Java/JavaSE/notes/Java常用类/Java常用类-枚举类',
 	  ]
 	},
 	{
