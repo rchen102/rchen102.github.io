@@ -53,7 +53,7 @@ int sum2 = (int)sum1;    // Explicit type cast
 - Java使用`UNICODE`编码，可以认为包含了`ASCII`编码('A': 65, 'a': 97, '0': 48)
 
 ::: tip ASCLL与UNICODE编码
-__ASCII__: 每个字符占用1字节(byte)，可以表示256个字符，分为标准ASCII码(0-127)和拓展ASCII码(128-255)，可以表示英文字符和一些符号
+__ASCII__: 每个字符占用1字节(byte)，可以表示256个字符，分为标准ASCII码(0-127)和拓展ASCII码(128-255)，可以表示英文字符和一些符号  
 __UNICODE__： 每个字符占用2字节，可以表示世界所有语言文字
 :::
 
