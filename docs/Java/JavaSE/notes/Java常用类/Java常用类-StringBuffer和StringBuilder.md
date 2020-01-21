@@ -10,7 +10,7 @@ tags:
 ### 特点
 StringBuffer最大的特点即**可变字符序列**
 
-其本质上是维护了一个字节数组(`byte[]`)，默认容量大小为16字节(1byte=8bit)，容量满时，创建新数组，复制旧数组内容，因此如果知道字符串大小，尽量提前指定，避免降低效率
+其本质上是维护了一个字节数组(`byte[]`,从JDK1.9开始，1.9以前使用字符数组char[])，默认容量大小为16字节(1byte=8bit)，容量满时，创建新数组，复制旧数组内容，因此如果知道字符串大小，尽量提前指定，避免降低效率
 
 StringBuilder是JDK1.5之后新增的，能力上与StringBuffer并无区别，但是去掉了线程安全的部分，有效减小了开销，效率更高，是拼接字符串的首选
 
@@ -45,16 +45,18 @@ sb.length();
 sb.capacity();
 sb.setLength(newLength);
 
+/**** import operation ****/
 sb.append(data);             // overloaded to main types(int, double, char, char[])
-sb.insert(idx, data);
+sb.insert(idx, data);        // data will be inserted at idx, not idx + 1
 sb.delete(start, end);       // delete [start..end-1]
+sb.reverse();
 
-sb.substring(start);         // return String[start..end-1]
-sb.substring(start,end);     // return String[start..end-1]
-
+/*** other ***/
 sb.setCharAt​(idx, char ch);
 sb.deleteCharAt(idx);
 
+sb.substring(start);         // return String[start..end-1]
+sb.substring(start,end);     // return String[start..end-1]
 sb.indexOf(str);
 ```
 
