@@ -5,7 +5,7 @@ module.exports = [
 	  sidebarDepth: 1,
 	  children:[
 		'/Network/notes/计算机网络概述',
-		'/Network/notes/应用层',
+		'/Network/notes/应用层1',
 	  ]
 	},
 ]
