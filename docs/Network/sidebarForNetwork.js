@@ -9,7 +9,7 @@ module.exports = [
 	},
 	{
 	  title:'应用层',
-	  collapsable: false,
+	  collapsable: true,
 	  sidebarDepth: 1,
 	  children:[
 		'/Network/notes/1 应用层1',
@@ -20,7 +20,7 @@ module.exports = [
 	},
 	{
 	  title:'运输层',
-	  collapsable: false,
+	  collapsable: true,
 	  sidebarDepth: 1,
 	  children:[
 		'/Network/notes/2 运输层1',
