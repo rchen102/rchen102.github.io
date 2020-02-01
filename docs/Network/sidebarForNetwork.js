@@ -4,7 +4,7 @@ module.exports = [
 	  collapsable: true,
 	  sidebarDepth: 1,
 	  children:[
-		'/Network/notes/计算机网络概述',
+		'/Network/notes/0 计算机网络概述',
 	  ]
 	},
 	{
@@ -12,10 +12,18 @@ module.exports = [
 	  collapsable: false,
 	  sidebarDepth: 1,
 	  children:[
-		'/Network/notes/应用层1',
-		'/Network/notes/应用层2',
-		'/Network/notes/应用层3',
-		'/Network/notes/应用层4',
+		'/Network/notes/1 应用层1',
+		'/Network/notes/1 应用层2',
+		'/Network/notes/1 应用层3',
+		'/Network/notes/1 应用层4',
+	  ]
+	},
+	{
+	  title:'运输层',
+	  collapsable: false,
+	  sidebarDepth: 1,
+	  children:[
+		'/Network/notes/2 运输层1',
 	  ]
 	},
 ]
