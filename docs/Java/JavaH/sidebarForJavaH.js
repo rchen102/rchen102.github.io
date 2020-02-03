@@ -15,4 +15,11 @@ module.exports = [
 	  	'/Java/JavaH/notes/Java多线程编程/Java多线程编程-3',
 	  ]
 	},
+	{
+	  title:'网络编程',
+	  collapsable: true,
+	  children:[
+	  	'/Java/JavaH/notes/Java网络编程/Java网络编程-1',
+	  ]
+	},
 ]
