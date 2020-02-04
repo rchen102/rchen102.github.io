@@ -24,6 +24,7 @@ module.exports = [
 	  sidebarDepth: 1,
 	  children:[
 		'/Network/notes/2 运输层1',
+		'/Network/notes/2 运输层2',
 	  ]
 	},
 ]
