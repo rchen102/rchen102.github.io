@@ -1,5 +1,5 @@
 ## Hi, 你好
-这里是rchen102的wiki博客，用于学习笔记记录和知识总结，欢迎一起学习讨论：
+这里是「 rchen102 」的 wiki 博客，用于学习笔记记录和知识总结，欢迎一起学习讨论：
 
 ## 联系方式
 [E-mail](mailto:rchen102@binghamton.edu)

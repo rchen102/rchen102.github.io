@@ -12,6 +12,7 @@ module.exports = [
 	  title:'算法',
 	  collapsable: true,
 	  children:[
+	  	'/DSA/Algorithm/1 Recursion',
 	  ]
 	}
 ]
