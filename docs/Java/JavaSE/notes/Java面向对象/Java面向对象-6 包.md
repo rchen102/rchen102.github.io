@@ -56,9 +56,12 @@ public class AnotherClass {
 ```
 
 ::: tip 提示
-可以使用`javac -d . *.java`来编译并为`.class`文件自动生成目录
+可以使用`javac -d . *.java`来编译并为`.class`文件，并依据包，自动生成目录
 - `-d`: 表示根据`package`定义生成目录
 - `.`: 表示目录的生成位置，`.`表示当前所在目录
+
+注意，此时执行`*.class`文件时，必须使用完整名称，即带包名执行  
+`java pkg1.pkg2.Driver`
 :::
 
 ### 静态导入

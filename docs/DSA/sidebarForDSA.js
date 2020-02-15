@@ -13,7 +13,9 @@ module.exports = [
 	  collapsable: true,
 	  children:[
 	  	'/DSA/Algorithm/1 Recursion',
-	  	'/DSA/Algorithm/2 Sort',
+	  	'/DSA/Algorithm/2 Sort1',
+	  	'/DSA/Algorithm/2 Sort2',
+	  	'/DSA/Algorithm/2 Sort3',
 	  ]
 	}
 ]
