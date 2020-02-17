@@ -16,6 +16,7 @@ module.exports = [
 	  	'/DSA/Algorithm/2 Sort1',
 	  	'/DSA/Algorithm/2 Sort2',
 	  	'/DSA/Algorithm/2 Sort3',
+	  	'/DSA/Algorithm/2 Sort4',
 	  ]
 	}
 ]
