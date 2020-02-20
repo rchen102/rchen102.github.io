@@ -17,6 +17,7 @@ module.exports = [
 	  	'/DSA/Algorithm/2 Sort2',
 	  	'/DSA/Algorithm/2 Sort3',
 	  	'/DSA/Algorithm/2 Sort4',
+	  	'/DSA/Algorithm/3 Binary Search',
 	  ]
 	}
 ]
