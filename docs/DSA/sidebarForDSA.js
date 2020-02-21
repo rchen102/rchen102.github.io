@@ -6,6 +6,7 @@ module.exports = [
 		'/DSA/DataStructure/1 Array',
 		'/DSA/DataStructure/2 LinkedList',
 		'/DSA/DataStructure/3 StackAndQueue',
+		'/DSA/DataStructure/4 SkipList',
 	  ]
 	}, 
 	{
