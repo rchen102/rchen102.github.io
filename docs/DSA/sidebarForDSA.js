@@ -7,6 +7,7 @@ module.exports = [
 		'/DSA/DataStructure/2 LinkedList',
 		'/DSA/DataStructure/3 StackAndQueue',
 		'/DSA/DataStructure/4 SkipList',
+		'/DSA/DataStructure/5 HashTable',
 	  ]
 	}, 
 	{
@@ -19,6 +20,14 @@ module.exports = [
 	  	'/DSA/Algorithm/2 Sort3',
 	  	'/DSA/Algorithm/2 Sort4',
 	  	'/DSA/Algorithm/3 Binary Search',
+	  ]
+	},
+	{
+	  title:'其他',
+	  collapsable: true,
+	  children:[
+	  	'/DSA/Other/application',
+	  	'/DSA/Other/complexity',
 	  ]
 	}
 ]
