@@ -16,6 +16,13 @@ module.exports = [
 	  ]
 	},
 	{
+	  title:'Java 集合',
+	  collapsable: true,
+	  children:[
+	  	'/Java/JavaH/notes/Java集合/HashMap',
+	  ]
+	},
+	{
 	  title:'Java IO',
 	  collapsable: true,
 	  children:[
