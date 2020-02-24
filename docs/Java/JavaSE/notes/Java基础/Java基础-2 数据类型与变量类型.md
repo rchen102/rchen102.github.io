@@ -37,7 +37,7 @@ Java中的数据类型主要分为两类
 - `byte`可以方便的用于数据传输以及编码转换
 
 :::tip 类型转换
-- 向上转换: 表达式中自动向上转换，不会出现数值转化错误  
+- 向上转换: 表达式中，如果进行运算的两个数据类型不同，自动向上转换，不会出现数值转化错误  
   `char->short->int->long->float->double`  
   `signed->unsigned`  
 - 向下转换: 需要使用强制类型转换
@@ -47,6 +47,11 @@ int num1 = 1;
 int num2 = 1;
 long sum1 = num1 + num2; // Automatically cast to more general type
 int sum2 = (int)sum1;    // Explicit type cast
+
+int x = 2147483647;    // Max of int
+long n = x + 1;        // n = -2147483648
+long n = x + 1L;       // n = 2147483648
+long n = (long)x + 1;  // n = 2147483648
 ```
 
 #### 字符型

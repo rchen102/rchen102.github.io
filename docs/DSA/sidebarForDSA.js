@@ -8,6 +8,7 @@ module.exports = [
 		'/DSA/DataStructure/3 StackAndQueue',
 		'/DSA/DataStructure/4 SkipList',
 		'/DSA/DataStructure/5 HashTable',
+		'/DSA/DataStructure/6 Binary Tree',
 	  ]
 	}, 
 	{
@@ -20,6 +21,7 @@ module.exports = [
 	  	'/DSA/Algorithm/2 Sort3',
 	  	'/DSA/Algorithm/2 Sort4',
 	  	'/DSA/Algorithm/3 Binary Search',
+	  	'/DSA/Algorithm/4 Hash',
 	  ]
 	},
 	{
