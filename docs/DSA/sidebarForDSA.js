@@ -8,7 +8,8 @@ module.exports = [
 		'/DSA/DataStructure/3 StackAndQueue',
 		'/DSA/DataStructure/4 SkipList',
 		'/DSA/DataStructure/5 HashTable',
-		'/DSA/DataStructure/6 Binary Tree',
+		'/DSA/DataStructure/6 BinaryTree',
+		'/DSA/DataStructure/7 RedBlackTree',
 	  ]
 	}, 
 	{
