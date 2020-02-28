@@ -4,4 +4,5 @@ module.exports = {
 	'/DSA/': require('../DSA/sidebarForDSA'),
 	'/Network/': require('../Network/sidebarForNetwork'),
 	'/DB/': require('../DB/sidebarForDB'),
+	'/Keypoint/': require('../Keypoint/sidebarForKeypoint'),
 }

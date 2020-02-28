@@ -27,15 +27,4 @@ module.exports = [
 		'/Network/notes/2 运输层2',
 	  ]
 	},
-	{
-	  title:'重点',
-	  collapsable: true,
-	  sidebarDepth: 1,
-	  children:[
-		'/Network/keypoints/1 TCP的三次握手',
-		'/Network/keypoints/2 TCP的四次挥手',
-		'/Network/keypoints/3 TCP和UDP区别',
-		'/Network/keypoints/4 TCP的滑窗',
-	  ]
-	},
 ]
