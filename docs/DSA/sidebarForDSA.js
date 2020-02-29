@@ -10,6 +10,7 @@ module.exports = [
 		'/DSA/DataStructure/5 HashTable',
 		'/DSA/DataStructure/6 BinaryTree',
 		'/DSA/DataStructure/7 RedBlackTree',
+		'/DSA/DataStructure/8 Heap',
 	  ]
 	}, 
 	{
