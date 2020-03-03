@@ -2,6 +2,7 @@ module.exports = [
 	{
 	  title:'数据结构',
 	  collapsable: true,
+	  sidebarDepth: 1,
 	  children:[
 		'/DSA/DataStructure/1 Array',
 		'/DSA/DataStructure/2 LinkedList',
@@ -11,6 +12,7 @@ module.exports = [
 		'/DSA/DataStructure/6 BinaryTree',
 		'/DSA/DataStructure/7 RedBlackTree',
 		'/DSA/DataStructure/8 Heap',
+		'/DSA/DataStructure/9 Graph',
 	  ]
 	}, 
 	{
