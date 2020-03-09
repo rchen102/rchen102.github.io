@@ -117,14 +117,13 @@ private static void qSortHelper(int[] arr, int lo, int hi) {
 
 private static int partition(int[] arr, int lo, int hi) {
     int i = lo;
-    for (int j = lo; j <= hi; j++) {
-        if (arr[j] <= arr[hi]) {
-            int tmp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = tmp;
+    for (int j = lo; j < hi; j++) {
+        if (arr[j] < arr[hi]) {
+            swap(arr, i, j)
             i++;
         }
     }
+    swap(arr, i, hi);
     return i-1;
 }
 ```
