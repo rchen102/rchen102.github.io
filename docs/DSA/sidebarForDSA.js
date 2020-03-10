@@ -13,6 +13,7 @@ module.exports = [
 		'/DSA/DataStructure/7 RedBlackTree',
 		'/DSA/DataStructure/8 Heap',
 		'/DSA/DataStructure/9 Graph',
+		'/DSA/DataStructure/10 Trie',
 	  ]
 	}, 
 	{
