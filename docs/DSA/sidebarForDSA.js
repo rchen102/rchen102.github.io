@@ -28,6 +28,10 @@ module.exports = [
 	  	'/DSA/Algorithm/3 Binary Search',
 	  	'/DSA/Algorithm/4 Hash',
 	  	'/DSA/Algorithm/5 StringMatch',
+	  	'/DSA/Algorithm/6 Divide and Conquer',
+	  	'/DSA/Algorithm/7 Backtrace',
+	  	'/DSA/Algorithm/8 Greedy',
+	  	'/DSA/Algorithm/9 Dynamic Programming',
 	  ]
 	},
 	{
