@@ -41,5 +41,12 @@ module.exports = [
 	  	'/DSA/Other/application',
 	  	'/DSA/Other/complexity',
 	  ]
-	}
+	},
+	{
+	  title:'常用算法',
+	  collapsable: true,
+	  children:[
+	  	'/DSA/Common/array',
+	  ]
+	},
 ]

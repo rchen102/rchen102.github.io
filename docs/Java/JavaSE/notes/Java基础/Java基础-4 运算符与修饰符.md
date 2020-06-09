@@ -38,20 +38,28 @@ class Student {
 ```
 
 ### final
-- 修饰变量
-final修饰的变量必须显示指定初始值，且赋值后不能被更改，常与static使用创建类常量
+- 修饰变量  
+final 修饰的变量必须显示指定初始值，且赋值后不能被更改，常与 static 使用创建类常量
+
+如果是非 static ，声明时也可以不指定初始值，而是在 constructor 中指定
+
 ```java
 class Math {
     public static final pi = 3.14;
+    public final g;
+
+    public Math() {
+        g = 9.8;
+    }
 }
 
 ```
-- 修饰方法
-父类中final修饰的方法可以被子类继承，但是不能被重写(override)  
-使用final的主要目的就是防止方法的内容被修改
+- 修饰方法  
+父类中 final 修饰的方法可以被子类继承，但是不能被重写（override）  
+使用 final 的主要目的就是防止方法的内容被修改
 
-- 修饰类
-final修饰的类不能被继承
+- 修饰类  
+final 修饰的类不能被继承
 
 ## 参考
 [1] [Java菜鸟教程](https://www.runoob.com/java/java-operators.html)
