@@ -46,7 +46,8 @@ module.exports = [
 	  title:'常用算法',
 	  collapsable: true,
 	  children:[
-	  	'/DSA/Common/array',
+	  	'/DSA/Common/Array',
+	  	'/DSA/Common/LinkedList',
 	  ]
 	},
 ]

@@ -20,3 +20,17 @@ private void swap(int[] nums, int idx1, int idx2) {
     nums[idx2] = tmp;
 }
 ```
+
+## 二分查找
+```java
+public static int binarySearch(int[] arr, int target) {
+    int lo = 0, hi = arr.length - 1;
+    while (lo <= hi) {
+        int mid = lo + ((hi - lo) >> 1);
+        if (arr[mid] > target) hi = mid - 1;
+        else if (arr[mid] < target) lo = mid + 1;
+        else return mid;
+    }
+    return lo;
+}
+```
