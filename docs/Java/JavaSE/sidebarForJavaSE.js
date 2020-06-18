@@ -8,6 +8,7 @@ module.exports = [
 		'/Java/JavaSE/notes/Java基础/Java基础-3 代码块',
 		'/Java/JavaSE/notes/Java基础/Java基础-4 运算符与修饰符',
 		'/Java/JavaSE/notes/Java基础/Java基础-5 异常处理',
+		'/Java/JavaSE/notes/Java基础/Java基础-6 基本语句',
 	  ]
 	},
 	{
