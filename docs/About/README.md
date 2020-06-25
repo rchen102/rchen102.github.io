@@ -1,38 +1,14 @@
 ## Hi, 你好
-这里是「 rchen102 」的 wiki 博客，用于学习笔记记录和知识总结，欢迎一起学习讨论：
+这里是「 rchen102 」的 wiki 博客
+
+主要用于日常学习知识的记录，学过的内容，经过自己总结梳理后，记忆更加牢固，也便于复习
+
+本博客使用 [vuepress](https://vuepress.vuejs.org/) 搭建 + [Travis CI](https://travis-ci.org/) 自动编译构建
 
 <details>
-<summary>点此展开查看</summary>
-测试
+<summary>联系方式</summary>
+
+- wechat: rchen102
+- email: rchen102@binghamton.edu
+
 </details>
-
-## 联系方式
-[E-mail](mailto:rchen102@binghamton.edu)
-
-## 1 Java
-### [Java基础](../Java/JavaSE/)
-### [Java高级](../Java/JavaH/)
-
-## 2 框架和中间件
-- 框架: ssm(Spring MVC + Spring + MyBatis), Spring boot
-- 中间件: Redis
-
-## 3 数据库
-### [数据库基础](../DB/)
-### 数据库高级
-
-## 4 数据结构与算法
-### [数据结构](../DSA/)
-### [算法](../DSA/)
-
-## 5 基础知识
-### [计算机网络](../Network/)
-### 操作系统
-
-## 6 设计模式
-### 23种常用设计模式
-
-## 7 系统设计
-### 入门架构知识
-### 分布式
-### 微服务
