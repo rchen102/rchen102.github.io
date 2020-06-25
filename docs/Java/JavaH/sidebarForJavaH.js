@@ -26,7 +26,8 @@ module.exports = [
 	  title:'Java IO',
 	  collapsable: true,
 	  children:[
-	  	'/Java/JavaH/notes/JavaIO编程/JavaIO编程-1',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 1 体系理解',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 2 File类',
 	  ]
 	},
 	{
