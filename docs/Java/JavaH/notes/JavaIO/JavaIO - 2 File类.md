@@ -4,6 +4,11 @@ date: 2020-06-24 20:42:00
 categories: 
 tags:
 ---
+::: tip 
+File 类只负责文件自身的操作，不负责文件内容的操作
+
+:::
+
 ## 构造器
 ```java
 public File(String pathname) // 设置要操作文件的完整路径
