@@ -30,6 +30,8 @@ module.exports = [
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 2 File类',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 3 字节流OutputStream',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 4 字节流InputStream',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 5 字符流Writer',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 6 字符流Reader',
 	  ]
 	},
 	{

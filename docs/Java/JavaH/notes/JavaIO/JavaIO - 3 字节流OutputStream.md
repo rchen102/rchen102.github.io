@@ -4,9 +4,10 @@ date: 2020-06-25 20:42:00
 categories: 
 tags:
 ---
-## 基本操作
+## 基本介绍
 **1. 定义**  
 ```java
+// JDK1.0
 public abstract class OutputStream
 extends Object
 implements Closeable, Flushable

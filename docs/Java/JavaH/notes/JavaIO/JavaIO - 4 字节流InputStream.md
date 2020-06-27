@@ -4,9 +4,10 @@ date: 2020-06-25 20:42:00
 categories: 
 tags:
 ---
-## 基本操作
+## 基本介绍
 **1. 定义**
 ```java
+// JDK1.0
 public abstract class InputStream
 extends Object
 implements Closeable
@@ -36,7 +37,6 @@ public byte[] readAllBytes() throws IOException
 ```java
 // 构造方法
 public FileInputStream​(File file) throws FileNotFoundException
-
 ```
 
 ## 样例
