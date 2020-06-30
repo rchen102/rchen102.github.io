@@ -255,6 +255,8 @@ class Test {
 **2. throw**  
 异常可以由系统自动实例化对象随后抛出，也可以通过`throw`手工进行异常类的实例化对象抛出
 
+throw 语句执行后，后续语句将不会再执行
+
 ```java
 class Test {
     /*
@@ -264,6 +266,7 @@ class Test {
     public static int divide(int x, int y) throws Exception {
         if (y == 0) {
             throw new Exception("y cannot be zero");
+            System.out.println("Here"); // 该语句不会执行，unreachable
         }
         return x/y;
     }

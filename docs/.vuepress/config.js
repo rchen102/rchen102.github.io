@@ -8,7 +8,7 @@ module.exports = {
     markdown: {
         lineNumbers: true
     },
-    plugins: ['@vuepress/back-to-top'],
+    plugins: ['@vuepress/back-to-top','@vuepress/medium-zoom'],
     themeConfig: {
         repo: 'https://github.com/rchen102/rchen102.github.io',
         repoLabel: 'GitHub',

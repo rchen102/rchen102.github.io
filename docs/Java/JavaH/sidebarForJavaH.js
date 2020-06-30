@@ -25,13 +25,19 @@ module.exports = [
 	{
 	  title:'Java IO',
 	  collapsable: true,
+	  sidebarDepth: 1,
 	  children:[
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 1 体系理解',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 2 File类',
-	  	'/Java/JavaH/notes/JavaIO/JavaIO - 3 字节流OutputStream',
-	  	'/Java/JavaH/notes/JavaIO/JavaIO - 4 字节流InputStream',
-	  	'/Java/JavaH/notes/JavaIO/JavaIO - 5 字符流Writer',
-	  	'/Java/JavaH/notes/JavaIO/JavaIO - 6 字符流Reader',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 3 字节流',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 4 字符流',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 5 字节流对比字符流',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 6 转换流',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 7 内存流',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 8 管道流',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - System',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 装饰者模式',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 文件复制',
 	  ]
 	},
 	{
