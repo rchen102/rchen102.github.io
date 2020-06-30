@@ -35,8 +35,9 @@ module.exports = [
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 6 转换流',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 7 内存流',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 8 管道流',
-	  	'/Java/JavaH/notes/JavaIO/JavaIO - System',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 9 序列化',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 装饰者模式',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - System',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 文件复制',
 	  ]
 	},

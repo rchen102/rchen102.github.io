@@ -59,7 +59,9 @@ Java IO 体系是为了处理 IO 相关操作，提供程序与外部设备的�
 对于文件系统的 IO 操作可以说是最常见的操作了，因此 JDK 提供了 FileReader 和 FileWriter 这两个流对象，可以直接将文件转换成字符流，省去了创建字节流，再套上转换流的过程，它们的顶层抽象类 Reader 和 Writer 代表了人类可读可写的字符流，同理也有更高效的，带缓冲区的 BufferedReader 和 BufferedWriter
 
 <div align=center>
+
 <img src="/img/Java/JavaIO.png" style="zoom:80%">
+
 </div>
 
 
