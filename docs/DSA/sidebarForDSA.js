@@ -21,10 +21,6 @@ module.exports = [
 	  collapsable: true,
 	  children:[
 	  	'/DSA/Algorithm/1 Recursion',
-	  	'/DSA/Algorithm/2 Sort1',
-	  	'/DSA/Algorithm/2 Sort2',
-	  	'/DSA/Algorithm/2 Sort3',
-	  	'/DSA/Algorithm/2 Sort4',
 	  	'/DSA/Algorithm/3 Binary Search',
 	  	'/DSA/Algorithm/4 Hash',
 	  	'/DSA/Algorithm/5 StringMatch',
@@ -32,6 +28,16 @@ module.exports = [
 	  	'/DSA/Algorithm/7 Backtrace',
 	  	'/DSA/Algorithm/8 Greedy',
 	  	'/DSA/Algorithm/9 Dynamic Programming',
+	  ]
+	},
+	{
+	  title:'排序算法',
+	  collapsable: true,
+	  children:[
+	  	'/DSA/SortAlgorithm/Sort1',
+	  	'/DSA/SortAlgorithm/Sort2',
+	  	'/DSA/SortAlgorithm/Sort3',
+	  	'/DSA/SortAlgorithm/Sort4',
 	  ]
 	},
 	{
