@@ -44,8 +44,10 @@ module.exports = [
 	{
 	  title:'Java 网络编程',
 	  collapsable: true,
+	  sidebarDepth: 1,
 	  children:[
-	  	'/Java/JavaH/notes/Java网络编程/Java网络编程-1',
+	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 1 网络编程介绍',
+	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 2 TCP',
 	  ]
 	},
 ]
