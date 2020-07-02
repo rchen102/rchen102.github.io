@@ -38,7 +38,8 @@ module.exports = [
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 9 序列化',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 装饰者模式',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - System',
-	  	'/Java/JavaH/notes/JavaIO/JavaIO - 文件复制',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 实际案例 文件复制',
+	  	'/Java/JavaH/notes/JavaIO/JavaIO - 实际案例 数据输入工具类',
 	  ]
 	},
 	{
@@ -48,6 +49,7 @@ module.exports = [
 	  children:[
 	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 1 网络编程介绍',
 	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 2 TCP',
+	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 3 Echo',
 	  ]
 	},
 ]

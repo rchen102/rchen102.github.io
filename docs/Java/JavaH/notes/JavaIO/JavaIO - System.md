@@ -11,6 +11,9 @@ java.lang.System 中提供了 3 个与 IO 相关的系统常量：
 - 标准输入（键盘）：public static final InputStream in
 
 ## 代码样例
+**Scanner**  
+- 默认使用空格作为分割符（配合 next() 依次读取字符），如需要改变，使用 useDelimiter() 方法
+
 ```java
 // 参考链接 https://blog.csdn.net/CYQqi/article/details/79733031
 // 1. 读入一个数

@@ -34,7 +34,11 @@ public static void printLen(String str) {
 
 运行速度: StringBuilder > StringBuffer > String
 
-![类关系](/img/Java/JavaH/StringBufferAndStringBuilder.png)
+<div align=center>
+ 
+![类关系](/img/Java/StringBufferAndStringBuilder.png)
+
+</div>
 
 ## 操作API
 ```java

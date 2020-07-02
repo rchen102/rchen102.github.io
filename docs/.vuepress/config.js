@@ -3,7 +3,7 @@ module.exports = {
     description: '个人知识记录分享博客',
     base: '/',
     head: [
-        ['link', {rel: 'icon', href: '/img/helloworld.jpg'}]
+        ['link', {rel: 'icon', href: '/img/icon-smile.png'}]
     ],
     markdown: {
         lineNumbers: true
