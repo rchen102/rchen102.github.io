@@ -19,18 +19,22 @@ tags:
 ## 样例代码
 ### EchoServer
 ```java
-public class EchoServer {
-    public static void main(String[] args) throws Exception{
-        try (ServerSocket server = new ServerSocket(9090)) {
-            Socket client = server.accept();
-            System.out.println("Connection established successfully!");
+class HandlerThread implements Runnable {
+    private Socket client;
 
+    public HandlerThread(Socket client) {
+        this.client = client;
+    }
+
+    @Override
+    public void run() {
+        try {
             PrintStream output = new PrintStream(client.getOutputStream());
             Scanner scanner = new Scanner(client.getInputStream());
             scanner.useDelimiter("\n");
             while (true) {
                 if (scanner.hasNext()) {
-                    // 注意不能漏掉 trim，否则匹配可能失败
+                    // 注意不能漏掉 trim，因为最后还要一个换行符
                     String value = scanner.next().trim();
                     if ("bye".equalsIgnoreCase(value)) {
                         // 结束交互
@@ -42,6 +46,19 @@ public class EchoServer {
                 }
             }
             client.close();
+        } catch (Exception e) {}
+    }
+}
+
+
+public class EchoServer {
+    public static void main(String[] args) throws Exception{
+        try (ServerSocket server = new ServerSocket(9090)) {
+            while (true) {
+                Socket client = server.accept();
+                System.out.println("New connection established successfully!");
+                new Thread(new HandlerThread(client)).start();
+            }
         }
     }
 }
