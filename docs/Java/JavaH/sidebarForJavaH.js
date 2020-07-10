@@ -22,8 +22,12 @@ module.exports = [
 	  	'/Java/JavaH/notes/Java集合/Collection - 1 Java集合框架',
 	  	'/Java/JavaH/notes/Java集合/Collection - 2 Collection',
 	  	'/Java/JavaH/notes/Java集合/Collection - 3 List',
-	  	'/Java/JavaH/notes/Java集合/ArrayList',
-	  	'/Java/JavaH/notes/Java集合/HashMap',
+	  	'/Java/JavaH/notes/Java集合/Collection - 4 List子类',
+	  	'/Java/JavaH/notes/Java集合/Collection - 5 Set',
+	  	'/Java/JavaH/notes/Java集合/Collection - 6 Set子类',
+	  	'/Java/JavaH/notes/Java集合/Collection - 7 Map',
+	  	'/Java/JavaH/notes/Java集合/Collection - 8 Map子类',
+	  	'/Java/JavaH/notes/Java集合/Collection - 操作',
 	  ]
 	},
 	{

@@ -1,5 +1,5 @@
 ---
-title: ArrayList & LinkedList
+title: List - 实现
 date: 2020-07-02 17:00:00
 categories: 
 tags:
@@ -26,7 +26,6 @@ tags:
 
 3. get 方法
 - 判断 index 是否大于 size/2，如果小于，则从 first 开始查询，如果大于，则从 last 开始
-
 
 
 
