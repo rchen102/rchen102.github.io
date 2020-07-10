@@ -4,36 +4,24 @@ date: 2020-07-04 10:44:00
 categories: 
 tags:
 ---
-## 介绍
+**Set 接口继承了 Collection 接口，具有如下特性**  
+- 无序存储，即存储和取出顺序不保证相同
+- 元素唯一性，可以存储 **null** 元素
+
+Set 接口对 Collection 基本没有扩充，在 JDK 1.9 后追加了一些 `of()` 方法够建静态 Set
+
+---
+**Set 有以下常用实现子类**   
+- HashSet：基于**哈希表**实现，元素无序唯一，线程不安全
+- LinkedHashSet：基于**链表和哈希表**共同实现，保留元素的插入顺序，线程不安全
+- TreeSet：基于**红黑树**实现，对元素按照指定顺序排序，线程不安全
+
+---
+**Set 类继承结构图**
+
 <div align=center>
 
 ![Set](/img/Java/Set.png)
 
 </div>
 
-Set 接口与 List 接口一样，直接继承了 Collection 接口，区别在于，Set **不允许重复**元素且**不保证顺序**
-
-JDK 1.9 前，Set 接口没有对 Collection 接口做任何扩充，即方法完全相同，JDK 1.9 后追加了一些 of() 方法
-
-## 常用子类
-- HashSet
-    + 基于散列表存储，无序
-- TreeSet
-    + 实现 NavigableSet 接口，NavigableSet -> SortedSet -> Set
-    + 有序存储
-- LinkedHashSet
-    + 基于 LinkedHashMap 存储
-
-```java
-public class HashSet<E>
-extends AbstractSet<E>
-implements Set<E>, Cloneable, Serializable
-
-public class TreeSet<E>
-extends AbstractSet<E>
-implements NavigableSet<E>, Cloneable, Serializable
-
-public class LinkedHashSet<E>
-extends HashSet<E>
-implements Set<E>, Cloneable, Serializable
-```

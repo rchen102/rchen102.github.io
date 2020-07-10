@@ -1,5 +1,5 @@
 ---
-title: Collection 接口
+title: Collection
 date: 2020-07-02 15:48:00
 categories: 
 tags:
@@ -10,7 +10,6 @@ tags:
 ![List](/img/Java/Collection.png)
 
 </div>
-
 
 java.util.Collection 接口是单值集合操作的最大父接口（每次只对单个对象进行操作）
 
@@ -34,12 +33,17 @@ public interface Iterable<T> {
 ## 常见方法
 ```java
 boolean add​(E e) 
+boolean remove​(Object o)    // 删除1个数据，需要equals()方法支持，可以删除null
+boolean contains​(Object o)  // 需要equals()方法支持
+
 boolean addAll​(Collection<? extends E> c)
+boolean removeAll​(Collection<?> c)
+boolean containsAll​(Collection<?> c)
+
 void clear()  // 清空集合
-boolean contains​(Object o) // 需要equals()方法支持
-boolean remove​(Object o)   // 删除数据，需要equals()方法支持
 
 int size()
+boolean isEmpty()
 Iterator<E> iterator()    // 获取迭代器
 Object[] toArray()        // 转换为对象数组
 ```

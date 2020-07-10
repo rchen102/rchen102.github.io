@@ -15,6 +15,8 @@ tags:
 - 对象编码比较：public int hashCode()
 - 对象内容比较：public boolean equals(Object obj)
 
+## LinkedHashSet
+
 ## TreeSet
 1. 基于 TreeMap 实现  
 

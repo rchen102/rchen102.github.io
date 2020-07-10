@@ -19,7 +19,6 @@ module.exports = [
 	  title:'Java 集合',
 	  collapsable: true,
 	  children:[
-	  	'/Java/JavaH/notes/Java集合/Collection - 1 Java集合框架',
 	  	'/Java/JavaH/notes/Java集合/Collection - 2 Collection',
 	  	'/Java/JavaH/notes/Java集合/Collection - 3 List',
 	  	'/Java/JavaH/notes/Java集合/Collection - 4 List子类',
