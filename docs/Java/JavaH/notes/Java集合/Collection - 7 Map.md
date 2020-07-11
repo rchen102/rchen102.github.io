@@ -4,22 +4,21 @@ date: 2020-07-09 10:23:00
 categories: 
 tags:
 ---
-## 介绍
+**Map 类继承结构图**
 <div align=center>
 
 ![Map类图](/img/Java/Map.png)
 
 </div>
 
-List 和 Set 属于单值集合，Map 属于二元偶对象集合
-
-常用方法如下：
+---
+Map 接口常用方法
 
 ```java
 // since JDK1.2
 public interface Map<K,​V> {
     boolean containsKey​(Object key)
-    boolean containsValue​(Object value)
+    boolean containsValue​(Object value) // 相比查找 key，查找 value 通常是 O(n)
 
     V   remove​(Object key)
     V   put​(K key, V value) // key存在，放回旧的内容，不存在，返回null
@@ -38,3 +37,4 @@ public static interface Map.Entry<K,​V> {
     V  getValue()
 }
 ```
+

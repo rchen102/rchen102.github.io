@@ -4,6 +4,13 @@ date: 2020-07-02 15:48:00
 categories: 
 tags:
 ---
+<details>
+<summary>定义</summary>
+
+
+
+</details>
+
 ## 介绍
 <div align=center>
 
@@ -37,8 +44,10 @@ boolean remove​(Object o)    // 删除1个数据，需要equals()方法支持�
 boolean contains​(Object o)  // 需要equals()方法支持
 
 boolean addAll​(Collection<? extends E> c)
-boolean removeAll​(Collection<?> c)
 boolean containsAll​(Collection<?> c)
+
+boolean removeAll​(Collection<?> c)   // 删除 c 中出现过的元素
+boolean retainAll​(Collection<?> c)   // 取交集，注意返回值是 boolean
 
 void clear()  // 清空集合
 

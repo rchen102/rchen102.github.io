@@ -4,38 +4,72 @@ date: 2020-07-02 17:00:00
 categories: 
 tags:
 ---
+- ArrayList：基于**数组**，查询快，增删慢，线程不安全
+- LinkedList：基于**双向链表**，查询慢，增删快，线程不安全
+- Vector：基于**数组**，线程安全，但是效率低下
+
 ## ArrayList
-**1. 基于动态数组实现**  
+1. 基于数组实现，当数组容量不足时，扩容为原来的 `1.5` 倍，无缩容操作
+2. 创建时可以指定容量，如未指定，则默认大小为 `10`
+3. 支持随机访问，通过索引访问元素，时间复杂度 `O(1)`
+4. 添加元素到尾部或删除尾部元素较快，平均复杂度 `O(1)`
+5. 添加元素到中间或删除中间元素较慢，需要搬移元素，平均复杂度 `O(n)`
+6. 求并集：`addAll()`；求交集：`retainAll()`；求差集：`removeAll()`
+7. 使用 `transient` 修饰内部数组，但实现了 `readObject` 和 `writeObject`，避免浪费空间
 
-**2. 构造方法**  
-- 无参构造：使用已经创建好的，长度为 0 的空数组，new Object[0]  
-- 有参构造：创建指定容量大小数组，若参数为 0，则同无参构造
-- 有参构造：参数为集合，则使用 Arrays.copyOf 复制创建数组
+<details>
+<summary>定义</summary>
 
-**3. 数组扩容**  
-- 初始长度为 0，则默认扩容至大小为 10 的数组
-- 否则，扩容为原来的 1.5 倍
-- 扩容采用 Arrays.copyOf 复制操作完成，耗时且产生垃圾，因此最好能够事先确定容量
+```java
+// since JDK 1.2
+public class ArrayList<E>
+extends AbstractList<E>
+implements List<E>, RandomAccess, Cloneable, Serializable
+```
 
-**4. 删除操作**
-- 删除元素后，复制数组至新的位置填补空白，同时在末尾补上对应的 null（这样 GC 时可以删除）
+</details>
 
-**5. 序列化**
-- ArrayList 中使用 transient 修饰数组，但是内部实现了 readObject 和 writeObject
-- 目的在于，扩容操作会留下空白数组，如果直接序列化会浪费空间
+## Vector
+1. JDK 1.0 推出的早期集合类，线程安全，所有方法都以 synchronized 修饰
+2. JDK 1.2 集合框架推出后，令 Vector 实现了 List 接口，保证向后兼容
+
+<details>
+<summary>定义</summary>
+
+```java
+// since JDK 1.0
+public class Vector<E>
+extends AbstractList<E>
+implements List<E>, RandomAccess, Cloneable, Serializable
+```
+
+</details>
 
 ## LinkedList
-**1. 基于双向链表实现**  
-- 存在一个静态内部类 Node，包含 next，prev 和 item 三个字段
-- 存在指向链表首部和尾部的指针，便于操作：first 和 last
+1. 基于双向链表实现，存在一个静态内部类 Node 和 first，last 指针便于操作
+2. LinkedList 也实现了 Deque 接口，即双端队列，可以当作队列，栈使用
+3. 不支持随机访问，平均复杂度 `O(n)`（实际上双向链表优化 `node(index)` 至 `O(n/2)`）
+4. `node(index)` 获得下标对应结点，索引小于 `size/2`，从前向后遍历，否则，从后向前遍历
+5. 首尾添加，删除元素比较高效，时间复杂度 `O(1)`
+6. 中间添加，删除元素比较低效，时间复杂度 `O(n/2)`
 
-**2. 构造方法**  
-- 不能指定初始容量，链表无需提前分配空间
-- 有参构造：参数为集合，集合转为 Array，遍历数组，创建双向链表
+<details>
+<summary>定义</summary>
 
-**3. 核心方法 node(index)**    
-- 该方法在集合中多次出现，获得下标对应的结点
-- 优化：如果索引小于 size/2，从前向后遍历，否则，从后向前遍历
+```java
+// since JDK 1.2
+public class LinkedList<E>
+extends AbstractSequentialList<E>
+implements List<E>, Deque<E>, Cloneable, Serializable
+```
+
+</details>
+
+---
+**参考链接**
+
+[1] [彤哥读源码 | ArrayList](https://www.cnblogs.com/tong-yuan/p/10638855.html)  
+[2] [彤哥读源码 | LinkedList](https://www.cnblogs.com/tong-yuan/p/LinkedList.html)
 
 
 

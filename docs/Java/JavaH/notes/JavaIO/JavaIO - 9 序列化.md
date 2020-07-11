@@ -89,5 +89,9 @@ public static void deserialize() throws IOException, ClassNotFoundException {
     Student student = (Student) ois.readObject();
     System.out.println(student);
 }
-
 ```
+
+## 自定义序列化方式
+如果一个类不仅实现了 Serializable 接口，并且定义了 readObject(ObjectInputStream in) 和 writeObject(ObjectOutputStream out) 方法，则 ObjectOutputStream 会调用这个类的 writeObject 方法进行序列化，ObjectInputStream 会调用相应的 readObject 方法进行反序列化
+
+[参考链接 | java ArrayList的序列化分析](https://www.cnblogs.com/vinozly/p/5171227.html)
