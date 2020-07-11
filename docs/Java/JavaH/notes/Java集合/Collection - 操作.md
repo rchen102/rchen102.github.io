@@ -7,6 +7,7 @@ tags:
 //TODO
 default void sort​(Comparator<? super E> c) 操作
 comparable 和 Comparator 针对 TreeSet 以及其他需要排序的东西 -》 弄清楚如何对自定义类排序
+Collections的使用
 
 ## Map 和 Set 迭代
 
@@ -66,6 +67,8 @@ public class Driver {
 }
 ```
 
+## TreeMap 实现最大最小堆
+
 ## Iterator 迭代访问集合
 - 对于数组类型结构，for 循环更合适，可以直接通过索引获取相关元素
 - 对于链表类型，Iterator 更合适，效率更高，无需每次从链表头部开始查找
@@ -117,8 +120,6 @@ public static void main(String[] args) throws IOException {
 [参考 1](https://blog.csdn.net/zymx14/article/details/78394464)  
 [参考 2](https://www.cnblogs.com/tong-yuan/p/HashSet.html)
 :::
-
-
 
 
 ## ListIterator

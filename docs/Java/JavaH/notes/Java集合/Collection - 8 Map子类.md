@@ -7,7 +7,7 @@ tags:
 - HashMap：基于**数组**，**单链表**，**红黑树**，无序，线程不安全
 - Hashtable：基于**数组**，**单链表**，无序，线程安全
 - LinkedHashMap：基于 **HashMap**，**双向链表**，按插入顺序或访问顺序，线程不安全
-- TreeMap
+- TreeMap：基于**红黑树**，按照 key 从小到大排序，线程不安全
 - ConcurrentHashMap
 
 
@@ -44,9 +44,9 @@ implements Map<K,​V>
 
 3. key 比较：先通过 hashCode() 找到对应的桶，如相同再比较 equals()  
 (1) 因此自定义类要注意同时重写两个方法  
-(2) `null` 可以作为 key 和 value 使用
+(2) key 和 value 都可以为 `null`
 
-4. 查找，修改的平均时间复杂度为 `O(1)`  
+4. 查找，修改等操作的平均时间复杂度为 `O(1)`  
 (1) 数组查询效率 `O(1)`，链表查询效率 `O(k)`，红黑树查询效率 `O(logk)`，k 为桶中元素个数
 
 5. 插入操作 put()：通过 hash(key) 方法得到 hash 值，再由 hash 值计算索引  
@@ -89,7 +89,7 @@ Hashtable 是 JDK 1.0 时期的产物，对比 HashMap
 2. 默认支持按元素插入顺序访问，也能以设置为按访问顺序访问（accessOrder 设为 true）  
 (1) 新插入的元素或最近被访问的元素，都将插入双向链表末尾
 
-3. 查找，修改的平均时间复杂度为 `O(1)`  
+3. 查找，修改等操作的平均时间复杂度为 `O(1)`  
 (1) 因为还需要维护双向链表，因此效率比 HashMap 要低
 
 4. 设计巧妙，很多方法都是在 HashMap 中留的钩子（Hook），实现这些 Hook 就可以实现对应功能了  
@@ -104,14 +104,22 @@ Hashtable 是 JDK 1.0 时期的产物，对比 HashMap
 
 
 ## TreeMap
-排序 -> 按照 key 排序
+1. 实现接口比较特殊 NavigableMap -> SortedMap -> Map，拓展了许多 Map 没有的方法
 
-1. key 要实现 Comparable 接口
+2. 底层结构只基于一颗红黑树，按 key 从小到大进行排序  
+(1) 一种方式是 key 实现 `Comparable<T>` 接口  
+(2) 另一种方式是，通过构造方法传入比较器 `Comparator<? super K>`  
+(3) key 不能为 `null`
 
-key 不能为 null 
+3. 查找，修改等操作平均复杂度都为 `O(logn)`，因为只用到了红黑树
+
+4. TreeMap 内部遍历的实现没有采用递归，实现比较有意思  
+(1) `for (Entry<K, V> e = getFirstEntry(); e != null; e = successor(e))`
+
 
 ---
 **参考链接**
 
 [1] [彤哥读源码 | HashMap](https://www.cnblogs.com/tong-yuan/p/10638912.html)  
-[1] [彤哥读源码 | LinkedHashMap](https://www.cnblogs.com/tong-yuan/p/10639263.html)  
+[2] [彤哥读源码 | LinkedHashMap](https://www.cnblogs.com/tong-yuan/p/10639263.html)  
+[3] [彤哥读源码 | TreeMap](https://www.cnblogs.com/tong-yuan/p/10651637.html)
