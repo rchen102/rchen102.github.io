@@ -7,7 +7,7 @@ tags:
 **Map 类继承结构图**
 <div align=center>
 
-![Map类图](/img/Java/Map.png)
+![Map类图](/img/Java/Map3.png)
 
 </div>
 

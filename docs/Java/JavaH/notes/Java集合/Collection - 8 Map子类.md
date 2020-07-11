@@ -1,19 +1,42 @@
 ---
-title: Map - 实现
+title: --- 实现子类
 date: 2020-07-09 10:23:00
 categories: 
 tags:
 ---
 - HashMap：基于**数组**，**单链表**，**红黑树**，无序，线程不安全
-- LinkedHashMap：基于
+- Hashtable：基于**数组**，**单链表**，无序，线程安全
+- LinkedHashMap：基于 **HashMap**，**双向链表**，按插入顺序或访问顺序，线程不安全
 - TreeMap
 - ConcurrentHashMap
-- Hashtable：基于数组，链表实现，无序，线程安全
 
-AbstractMap AbstractList 有什么用？
+
+<details>
+<summary>定义</summary>
+
+```java
+// since JDK 1.2
+public class HashMap<K,​V>
+extends AbstractMap<K,​V>
+implements Map<K,​V>, Cloneable, Serializable
+
+// since JDK 1.0
+public class Hashtable<K,​V>
+extends Dictionary<K,​V>
+implements Map<K,​V>, Cloneable, Serializable
+
+// since JDK 1.4
+public class LinkedHashMap<K,​V>
+extends HashMap<K,​V>
+implements Map<K,​V>
+```
+
+</details>
 
 ## HashMap
-1. 基于数组，链表，红黑树实现，数组的元素称为桶
+1. 基于数组，单链表，红黑树实现，数组的一个位置称为桶  
+(1) 基本结点 Node<K,V> 实现了 Map.Entry<K,V> 接口  
+(2) 结点存储了 hash，key，value，next
 
 2. 默认初始容量 `16`，装载因子 `0.75`，容量总是保持 `2^n`（方便按位与操作取模）  
 (1) 如传入容量参数 k，默认向上拓展至 k 最近的 `2^n` 作为容量  
@@ -41,19 +64,10 @@ AbstractMap AbstractList 有什么用？
 (4) 但是当红黑树中结点太少时，红黑树要维持平衡，比起链表，性能优势并不明显  
 (5) 因此当桶数量 `< 64`，即容量较小时，哈希碰撞的几率会比较大，此时应优先扩容
 
-8. 反树化操作 untreeify()：当 resize() 拆分红黑树时，拆分后，若发现单个桶中元素数量 `<= 6`，进行反树化  
+8. 反树化操作 untreeify()：发生在删除 remove() 和扩容 resize() 中  
+(1) 当 resize() 拆分红黑树时，拆分后，若发现单个桶中元素数量 `<= 6`，进行反树化  
+(2) 当 remove() 是从红黑树中删除结点时，如果发现根或左右结点其一为空，说明结点过少 `<= 2`，转为链表
 
-<details>
-<summary>定义</summary>
-
-```java
-// since JDK 1.2
-public class HashMap<K,​V>
-extends AbstractMap<K,​V>
-implements Map<K,​V>, Cloneable, Serializable
-```
-
-</details>
 
 ## Hashtable
 Hashtable 是 JDK 1.0 时期的产物，对比 HashMap
@@ -66,20 +80,28 @@ Hashtable 是 JDK 1.0 时期的产物，对比 HashMap
 6. Hashtable 是线程安全的
 
 
-<details>
-<summary>定义</summary>
-
-```java
-// since JDK 1.0
-public class Hashtable<K,​V>
-extends Dictionary<K,​V>
-implements Map<K,​V>, Cloneable, Serializable
-```
-
-</details>
-
 ## LinkedHashMap
-有序 -> 按照插入顺序
+1. 继承自 HashMap，基于 HashMap 和 双向链表实现  
+(1) 基本结点 Entry<K,V> 继承了 HashMap.Node<K,V>，扩展了新字段 before，after  
+(2) 这也是 LinkedHashMap 设计巧妙的地方，没有额外创建新结点够建链表  
+(3) 无论结点对象在 HashMap 内部是处于链表还是红黑树结构，都不影响双向链表的结构
+
+2. 默认支持按元素插入顺序访问，也能以设置为按访问顺序访问（accessOrder 设为 true）  
+(1) 新插入的元素或最近被访问的元素，都将插入双向链表末尾
+
+3. 查找，修改的平均时间复杂度为 `O(1)`  
+(1) 因为还需要维护双向链表，因此效率比 HashMap 要低
+
+4. 设计巧妙，很多方法都是在 HashMap 中留的钩子（Hook），实现这些 Hook 就可以实现对应功能了  
+(1) afterNodeInsertion：put 结尾处触发，用于移除最老的元素（如果需要）  
+(2) afterNodeAccess：元素被访问时调用，用于移动元素至双向链表末尾（如果需要）  
+(3) afterNodeRemoval：remove 调用时触发，从双向链表中删除对应结点  
+(4) newNode：插入新元素时触发，用于创建结点，创建 Entry<K,V> 替换原先的 Node<K,V>
+
+5. 默认不会插入元素时，不会移除旧元素，如果有需要，重写方法 boolean removeEldestEntry()
+(1) afterNodeInsertion 中会根据该方法判断，是否需要移除旧元素，默认返回 false
+(2) 可以利用继承 LinkedHashMap，重写该方法实现 LRU
+
 
 ## TreeMap
 排序 -> 按照 key 排序
@@ -92,3 +114,4 @@ key 不能为 null
 **参考链接**
 
 [1] [彤哥读源码 | HashMap](https://www.cnblogs.com/tong-yuan/p/10638912.html)  
+[1] [彤哥读源码 | LinkedHashMap](https://www.cnblogs.com/tong-yuan/p/10639263.html)  

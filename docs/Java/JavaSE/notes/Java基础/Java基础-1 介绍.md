@@ -57,19 +57,19 @@ Java通过字节码和JVM实现了跨平台的特性。
 ```
 
 ## Java基本概念
-1. JRE(Java Runtime Environment): Java运行环境，与开发无关，包含JVM和Java类库  
-2. JDK(Java Development Kit): Java开发工具，包含另一个JRE，提供更多工具如编译器Javac  
-3. JVM(Java Virtual Machine): Java虚拟机，是程序与操作系统之间的过渡，针对虚拟机开发，无需关注操作系统细节  
+1. JRE（Java Runtime Environment）：Java 运行环境，与开发无关，包含 JVM 和 Java 类库  
+2. JDK（Java Development Kit）：Java 开发工具，包含另一个 JRE，提供更多工具如编译器 Javac  
+3. JVM（Java Virtual Machine）： Java 虚拟机，是程序与操作系统之间的过渡，针对虚拟机开发，无需关注操作系统细节  
 
 ## Java开发方向
-1. Java标准开发(SE): JDK提供的就是单机程序开发支持
-2. Java企业级开发(EE): 构建分布式的企业系统平台
-3. Java嵌入式开发(ME): 微型Java程序开发，在移动设备上植入JVM，后被Android替代
+1. Java 标准开发（SE）：JDK 提供的就是单机程序开发支持
+2. Java 企业级开发（EE）：构建分布式的企业系统平台
+3. Java 嵌入式开发（ME）：微型 Java 程序开发，在移动设备上植入 JVM，后被 Android 替代
 
 
 ## 其他
-1. `CLASSPATH`: JVM执行时所需要的环境属性，用于定义类的加载路径
-2. `PATH`: 操作系统定义的环境属性，用于指定所有可执行程序的目录
+1. `CLASSPATH`：JVM 执行时所需要的环境属性，用于定义类的加载路径
+2. `PATH`：操作系统定义的环境属性，用于指定所有可执行程序的目录
 
 ## 参考
 [1] [阿里云大学 | 李兴华 - Java语言基础](https://edu.aliyun.com/roadmap/java?spm=5176.13345299.1392477.3.63ddf153q7QkVf)
