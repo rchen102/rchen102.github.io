@@ -8,28 +8,6 @@ tags:
 - LinkedList：基于**双向链表**，查询慢，增删快，线程不安全
 - Vector：基于**数组**，线程安全，但是效率低下
 
-<details>
-<summary>定义</summary>
-
-```java
-// since JDK 1.2
-public class ArrayList<E>
-extends AbstractList<E>
-implements List<E>, RandomAccess, Cloneable, Serializable
-
-// since JDK 1.0
-public class Vector<E>
-extends AbstractList<E>
-implements List<E>, RandomAccess, Cloneable, Serializable
-
-// since JDK 1.2
-public class LinkedList<E>
-extends AbstractSequentialList<E>
-implements List<E>, Deque<E>, Cloneable, Serializable
-```
-
-</details>
-
 ## ArrayList
 1. 基于数组实现，当数组容量不足时，扩容为原来的 `1.5` 倍，无缩容操作
 2. 创建时可以指定容量，如未指定，则默认大小为 `10`
@@ -45,7 +23,7 @@ implements List<E>, Deque<E>, Cloneable, Serializable
 
 
 ## LinkedList
-1. 基于双向链表实现，存在一个静态内部类 Node 和 first，last 指针便于操作
+1. 基于双向链表实现，存在一个静态内部类 Node 和两个 first，last 指针便于操作
 2. LinkedList 也实现了 Deque 接口，即双端队列，可以当作队列，栈使用
 3. 不支持随机访问，平均复杂度 `O(n)`（实际上双向链表优化 `node(index)` 至 `O(n/2)`）
 4. `node(index)` 获得下标对应结点，索引小于 `size/2`，从前向后遍历，否则，从后向前遍历

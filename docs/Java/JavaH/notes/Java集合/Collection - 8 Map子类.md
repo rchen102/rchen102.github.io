@@ -83,7 +83,7 @@ Hashtable 是 JDK 1.0 时期的产物，对比 HashMap
 ## LinkedHashMap
 1. 继承自 HashMap，基于 HashMap 和 双向链表实现  
 (1) 基本结点 Entry<K,V> 继承了 HashMap.Node<K,V>，扩展了新字段 before，after  
-(2) 这也是 LinkedHashMap 设计巧妙的地方，没有额外创建新结点够建链表  
+(2) 这也是 LinkedHashMap 设计巧妙的地方，没有额外创建新结点构建链表  
 (3) 无论结点对象在 HashMap 内部是处于链表还是红黑树结构，都不影响双向链表的结构
 
 2. 默认支持按元素插入顺序访问，也能以设置为按访问顺序访问（accessOrder 设为 true）  

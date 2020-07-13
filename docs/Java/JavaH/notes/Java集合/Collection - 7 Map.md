@@ -61,7 +61,7 @@ K   higherKey​(K key)  // 大于给定key的最小key
 K   ceilingKey​(K key) // 大于等于给定key的最小key
 
 // Entry 相关
-Map.Entry<K,​V> firstEntry()  // 最小的节点，或 null 代表空
+Map.Entry<K,​V> firstEntry()  // 最小的节点，或 null 代表空，O(logn) 树的高度
 Map.Entry<K,​V> lastEntry()
 
 Map.Entry<K,​V> pollFirstEntry()  // 弹出最小的节点

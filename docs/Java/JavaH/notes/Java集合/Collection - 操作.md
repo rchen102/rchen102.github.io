@@ -10,7 +10,6 @@ comparable 和 Comparator 针对 TreeSet 以及其他需要排序的东西 -》 
 Collections的使用
 
 ## Map 和 Set 迭代
-
 ```java
 //方法一：通过 Map.keySet 遍历 key 和 value，多了个 getValue 的过程
 for (String key : hashMap.keySet()) {
@@ -67,84 +66,7 @@ public class Driver {
 }
 ```
 
-## TreeMap 实现最大最小堆
 
-## Iterator 迭代访问集合
-- 对于数组类型结构，for 循环更合适，可以直接通过索引获取相关元素
-- 对于链表类型，Iterator 更合适，效率更高，无需每次从链表头部开始查找
-- Iterator 可以用于正确遍历集合删除元素
-
-<details>
-<summary>核心方法</summary>
-
-```java
-// since 1.2
-public Interface Iterator<E> {
-    default void forEachRemaining​(Consumer<? super E> action)   
-    boolean hasNext()   
-    E next()  
-    default void remove()  // 删除上一个next()返回的元素
-}
-```
-
-</details>
-
-
-```java
-public static void main(String[] args) throws IOException {
-    List<Integer> list = new ArrayList<>(Arrays.asList(1,2,3));
-    Iterator<Integer> iterator = list.iterator();
-    // 最正确的删除方法
-    // 普通 for 循环：删除导致索引动态变化，最终漏掉元素
-    // 增强 for 循环：（底层也是迭代器）：不能使用原生 list.remove() 方法，fail - fast
-    while (iterator.hasNext()) {
-        if (iterator.next() == 2) {
-            iterator.remove();
-        }
-    }
-
-    iterator = list.iterator(); // 重置迭代器
-    while (iterator.hasNext()) {
-        System.out.println(iterator.next());
-    } 
-}
-```
-
-
-::: tip 快速失败 fast - fail
-- 当使用 Iterator 迭代时，如使用集合原生方法对集合进行修改，则快速失败做出响应，抛出 ConcurrentModificationException 异常
-- 实现方式：modCount 用于记录集合操作过程中作的修改次数（不一定等于 size），每次创建 Iterator，迭代器会存储集合当前的 modCount，每次 next() 调用时，都会检查 modCount 是否发生了改变 =》 使用 Iterator 的 remove 操作来删除元素
-- 快速失败机制只尽力抛出异常，不提供保证，因此不能依赖该异常编写程序，该机制仅用于检测程序错误
-- 并非所有集合都具有该机制，具有最终一致性的 ConcurrentHashMap、CopyOnWriterArrayList 等都是没有 fast-fail
-
-[参考 1](https://blog.csdn.net/zymx14/article/details/78394464)  
-[参考 2](https://www.cnblogs.com/tong-yuan/p/HashSet.html)
-:::
-
-
-## ListIterator
-- ListIterator 相比 Iterator，可以进行双向迭代
-
-<details>
-<summary>核心方法</summary>
-
-```java
-public interface ListIterator<E> extends Iterator<E> {
-    boolean hasNext()
-    E next()
-    int nextIndex()
-
-    boolean hasPrevious()
-    E previous()
-    int previousIndex()
-
-    void remove()
-    void add​(E e)
-    void set​(E e)  // 替换上一次next或者previous返回的元素
-}
-```
-
-</details>
 
 
 
