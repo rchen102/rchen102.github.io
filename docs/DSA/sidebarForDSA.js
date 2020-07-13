@@ -53,6 +53,7 @@ module.exports = [
 	  collapsable: true,
 	  children:[
 	  	'/DSA/Common/ArrayRelated',
+	  	'/DSA/Common/SlidingWindow',
 	  	'/DSA/Common/LinkedList',
 	  ]
 	},

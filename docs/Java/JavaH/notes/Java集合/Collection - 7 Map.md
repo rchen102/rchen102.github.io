@@ -20,11 +20,11 @@ public interface Map<K,​V> {
     boolean containsKey​(Object key)
     boolean containsValue​(Object value) // 相比查找 key，查找 value 通常是 O(n)
 
-    V   remove​(Object key)
+    V   remove​(Object key)  // 存在，返回被删除的Value，不存在，返回 null
     V   put​(K key, V value) // key存在，放回旧的内容，不存在，返回null
-    V   get​(Object key)
-    default V putIfAbsent​(K key, V value) // 不存在才更新，更新后返回null
-    default V getOrDefault​(Object key, V defaultValue)
+    V   get​(Object key)     // 返回 null，如果key不存在
+    default V putIfAbsent​(K key, V value) // 存在，不更新，返回当前Value/不存在，更新，返回null
+    default V getOrDefault​(Object key, V defaultValue)  // 不存在，返回 defaultVal
 
     Set<K> keySet()
     Collection<V> values()

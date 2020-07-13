@@ -48,24 +48,34 @@ public abstract double doubleValue();
 
 包装类与基本数据类型的之间进行的类型转换，称为装箱与拆箱
 
-- 装箱: 基本数据类型 -> 包装类，一般通过构造方法完成
+- 装箱: 基本数据类型 -> 包装类，一般通过构造方法完成（Integer 等不一样）
 - 拆箱: 包装类 -> 基本数据类型(将包装类中的内容取出)，一般通过`xyzValue()`
-
-```java{1,3}
-// 构造方法
-public Integer(int value); // @Deprecated(since="9") JDK1.9后弃用
-// 手动的装箱拆箱
-Integer obj = Integer(10);
-int num = obj.intValue();
-```
-
-`Integer(int)`构造方法弃用的原因是，在JDK1.5之后，Java为包装类提供了自动装箱与拆箱处理
 
 利用自动装箱与拆箱机制，避免了复杂的方法调用，同时包装类也可以直接进行计算
 ```java
 Integer obj = 10; // 自动装箱
 obj++;            // 包装类可以直接进行计算(自动拆箱装箱)
 int num = obj;    // 自动拆箱
+```
+
+两个派别   
+- Integer 派别：Integer、Short、Byte、Character、Long 这几个类的 valueOf 方法的实现是类似的，缓存
+- Double 派别：Double、Float 的 valueOf 方法的实现是类似的，使用构造方法，每次都返回不同的对象
+
+[参考链接](https://www.cnblogs.com/wang-yaz/p/8516151.html)
+
+```java
+// 自动装箱
+Integer n = 10;  // 实际上调用 Integer n = Integer.valueOf(10)
+
+// 自动拆箱
+int num = n;     // 实际上调用 int num = n.intValue()
+
+/** @Deprecated(since="9") JDK1.9后弃用
+ * 弃用的原因是，在JDK1.5之后，Java为包装类提供了自动装箱与拆箱处理
+ * 也就是使用 Integer.valueOf()
+ */
+public Integer(int value); 
 ```
 
 ### Integer包装类
