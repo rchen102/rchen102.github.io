@@ -38,11 +38,10 @@ class Student {
 ```
 
 ### final
-- 修饰变量  
-final 修饰的变量必须显示指定初始值，且赋值后不能被更改，常与 static 使用创建类常量
-
-如果是非 static ，声明时也可以不指定初始值，而是在 constructor 中指定
-
+- 修饰类变量，即 static final：必须显示指定初始值，常用于创建类常量
+- 修饰成员变量，非 static：在构造完成前初始化即可，即在构造方法中或代码块中初始化
+- 修饰局部变量，声明时，可以不用初始化，但是只能赋值一次，赋值后不能更改
+    
 ```java
 class Math {
     public static final pi = 3.14;
