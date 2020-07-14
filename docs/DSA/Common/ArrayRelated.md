@@ -6,6 +6,7 @@ tags:
 ---
 ## 数组反转
 ```java
+// T: O(n) S: O(1)
 private void reverse(int[] nums, int left, int right) {
     while (left < right) {
         swap(nums, left, right);
