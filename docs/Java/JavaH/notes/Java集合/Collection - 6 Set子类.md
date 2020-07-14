@@ -39,4 +39,11 @@ tags:
 (1) 元素自身实现了 Comparable 接口，重写 int compareTo() 方法  
 (2) 创建时，指定一个比较器 Comparator
 
+---
+**参考链接**
+
+[1] [彤哥读源码 | HashSet](https://www.cnblogs.com/tong-yuan/p/HashSet.html)  
+[2] [彤哥读源码 | LinkedHashSet](https://www.cnblogs.com/tong-yuan/p/LinkedHashSet.html)  
+[3] [彤哥读源码 | TreeSet](https://www.cnblogs.com/tong-yuan/p/TreeSet.html)
+
 

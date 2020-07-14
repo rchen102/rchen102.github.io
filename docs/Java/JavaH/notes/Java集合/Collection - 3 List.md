@@ -13,7 +13,7 @@ tags:
 </div>
 
 ---
-List 扩充 Collection 新方法：
+List 扩充 Collection 新方法
 
 ```java
 void add​(int index, E element)
