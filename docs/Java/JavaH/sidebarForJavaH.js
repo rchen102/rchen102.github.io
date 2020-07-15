@@ -7,15 +7,6 @@ module.exports = [
 	  ]
 	},
 	{
-	  title:'Java 多线程编程',
-	  collapsable: true,
-	  children:[
-	  	'/Java/JavaH/notes/Java多线程编程/Java多线程编程-1',
-	  	'/Java/JavaH/notes/Java多线程编程/Java多线程编程-2',
-	  	'/Java/JavaH/notes/Java多线程编程/Java多线程编程-3',
-	  ]
-	},
-	{
 	  title:'Java 集合',
 	  collapsable: true,
 	  children:[
@@ -51,6 +42,18 @@ module.exports = [
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - System',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 实际案例 文件复制',
 	  	'/Java/JavaH/notes/JavaIO/JavaIO - 实际案例 数据输入工具类',
+	  ]
+	},
+	{
+	  title:'Java 并发编程',
+	  collapsable: true,
+	  sidebarDepth: 1,
+	  children:[
+	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 1 多线程介绍',
+	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 2 Java实现多线程',
+	  	'/Java/JavaH/notes/Java并发编程/Java多线程编程-1',
+	  	'/Java/JavaH/notes/Java并发编程/Java多线程编程-2',
+	  	'/Java/JavaH/notes/Java并发编程/Java多线程编程-3',
 	  ]
 	},
 	{

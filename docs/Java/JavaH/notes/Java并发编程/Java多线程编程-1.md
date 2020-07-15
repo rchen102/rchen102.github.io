@@ -50,25 +50,25 @@ class Test {
 `start()`方法里调用了`start0()`方法，该方法没有方法体，但是使用了`native`的关键字来定义，表示此操作将交由底层实现(JVM实现，JVM负责匹配不同OS的底层函数)
 
 ```java{3,7}
-   public synchronized void start() {
-       if (threadStatus != 0)
-           throw new IllegalThreadStateException();
-       group.add(this);
-       boolean started = false;
+public synchronized void start() {
+   if (threadStatus != 0)
+       throw new IllegalThreadStateException();
+   group.add(this);
+   boolean started = false;
+   try {
+       start0();
+       started = true;
+   } finally {
        try {
-           start0();
-           started = true;
-       } finally {
-           try {
-               if (!started) {
-                   group.threadStartFailed(this);
-               }
-           } catch (Throwable ignore) {
-               /* do nothing. If start0 threw a Throwable then
-                 it will be passed up the call stack */
+           if (!started) {
+               group.threadStartFailed(this);
            }
+       } catch (Throwable ignore) {
+           /* do nothing. If start0 threw a Throwable then
+             it will be passed up the call stack */
        }
    }
+}
 private native void start0();
 ```
 
