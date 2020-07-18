@@ -4,10 +4,6 @@ date: 2020-07-14 11:12:00
 categories: 
 tags:
 ---
-## 总结
-1. 当搜索区间是闭区间 [lo ,hi]，即 `while (lo <= hi)` 时  
-(1) 如果 target 不在区间内，则返回
-
 ## 经典二分查找
 返回的 lo 即为 target 应该出现的位置  
 - 如果 target 存在，则返回 target 的位置

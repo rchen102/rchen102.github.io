@@ -51,9 +51,7 @@ module.exports = [
 	  children:[
 	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 1 多线程介绍',
 	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 2 Java实现多线程',
-	  	'/Java/JavaH/notes/Java并发编程/Java多线程编程-1',
-	  	'/Java/JavaH/notes/Java并发编程/Java多线程编程-2',
-	  	'/Java/JavaH/notes/Java并发编程/Java多线程编程-3',
+	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 3 Thread',
 	  ]
 	},
 	{
