@@ -39,6 +39,8 @@ Socket accept() // 进入 block 状态，等待客户端连接
 - 服务器端获取的 Socket 的输出流，就是客户端的输入流
 - 服务器端获取的 Socket 的输入流，就是客户端的输出流
 
+[Socket 其他参数详解](https://www.cnblogs.com/qq5941/p/4857656.html)
+
 ```java
 // 构造方法
 public Socket​(String host, int port) throws UnknownHostException, IOException

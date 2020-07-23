@@ -4,6 +4,33 @@ date: 2019-12-25 16:15:00
 categories: 
 tags:
 ---
+## 异常机制
+
+<div align=center>
+
+![字符流](/img/Java/Exception.png)
+
+</div>
+
+Throwable 类是所有异常或错误的超类，它有两个子类：Error 和 Exception，分别表示错误和异常
+
+---
+**错误和异常**（Error / Exception）  
+- Error：由 JVM 所侦测到的无法预期的错误，由于这是属于 JVM 层次的严重错误，导致 JVM 无法继续执行，如 OutOfMemoryError，程序本身往往无法处理，因此无需捕获，也不能捕获
+- Exception：主要是由于程序设计的瑕疵或外界的输入而引起的问题，可以由程序捕获和恢复
+
+---
+**可查异常和不可查异常**（Checked / Unchecked Exception）  
+- 可查异常：checked at compile time，属于可以预料的异常，编译器会检查代码，要求你必须对这些异常进行处理，即 try-catch 捕获或 throws 向上抛出，如：IOException，FileNotFoundException
+- 不可查异常：not checked at compile time，checked at runtime，编译器不要求强制处置的异常，无法提前预期的异常，主要包括 RuntimeException 和 Error 
+
+---
+**运行时异常和非运行时异常**（Runtime / Non-Runtime）  
+- 运行时异常：指 RuntimeException 及其子类，这些异常是不检查异常，程序不强制要求捕获，也没有必要进行捕获处理，一般交由 JVM 进行处理
+    + NullPointerException，IndexOutOfBoundsException，ClassCastException，ArithmeticException
+- 非运行时异常：除了运行时异常以外的异常，包括用户自定义异常，强制要求进行处理
+
+
 ## try-catch-finally
 程序运行过程中可能出现异常，异常将导致程序提前中断，为了保证程序在出现异常时，仍然可以正常执行，需要设置异常处理
 
@@ -207,24 +234,12 @@ return: i=2
 </details>
 
 
-## 异常继承
-`Object <- Throwable <- Exception <- RuntimeException <- IndexOutOfBoundsException`  
-
-`Object <- Throwable <- Error`
-
-
-- `Exception`: 程序运行过程中出现，可以进行异常处理
-- `Error`: 程序还未执行时出现，无法进行处理
-
-可以通过捕获`Exception`捕获所有的异常，但是通常还是捕获特点异常进行不同处理
-
-
-## throws和throw关键字
+## throws / throw
 **1. throws**  
-- 可以通过`throws`关键字向方法调用者说明该方法可能抛出的异常
-- 调用使用了`throws`的方法时，需要对声明的异常进行捕获和处理
-- 如果不打算在本层进行异常处理，则调用者也可以使用`throws`将异常继续交由上层
-- 主方法也可使用`throws`，则代表该异常将交给JVM进行处理
+- 可以通过 `throws` 关键字向方法调用者说明该方法可能抛出的异常
+- 调用使用了 `throws` 的方法时，需要对声明的异常进行捕获和处理
+- 如果不打算在本层进行异常处理，则调用者也可以使用 `throws` 将异常继续交由上层
+- 主方法也可使用 `throws`，则代表该异常将交给 JVM 进行处理
 
 ```java
 class Test {
@@ -253,9 +268,9 @@ class Test {
 ```
 
 **2. throw**  
-异常可以由系统自动实例化对象随后抛出，也可以通过`throw`手工进行异常类的实例化对象抛出
+异常可以由系统自动实例化对象随后抛出，也可以通过 `throw` 手工进行异常类的实例化对象抛出
 
-throw 语句执行后，后续语句将不会再执行
+`throw` 语句执行后，后续语句将不会再执行
 
 ```java
 class Test {
@@ -273,21 +288,12 @@ class Test {
 }
 ```
 
-::: tip RuntimeException
-异常实际上分为强制处理异常和非强制处理异常，对于非强制处理异常，如`RuntimeException`，尽管使用了`throws`进行说明，但是可以由用户选择性的进行处理
-
-在不处理的时候如果产生异常，则会交由JVM自行进行处理(打印异常，终止程序)
-
-常见的**RuntimeException**:  
-`NullPointerException`, `ClassCastException`, `IndexOutOfBoundsException`
-:::
-
 ## 自定义异常
-Java内置了许多异常类型，但是在具体项目中仍然可能不足以满足需求，这时可以自定义异常
+Java 内置了许多异常类型，但是在具体项目中仍然可能不足以满足需求，这时可以自定义异常
 
 两种自定义异常的选择
-- 继承`Exception`: 强制性处理异常
-- 继承`RuntimeException`: 选择性异常处理
+- 继承 `Exception`: 强制性处理异常
+- 继承 `RuntimeException`: 选择性异常处理
 
 ```java
 class MyException extends RuntimeException {
@@ -304,9 +310,9 @@ class Test {
 ```
 
 ## 断言
-使用关键字`assert`，对指定内容进行判断，默认情况下，Java并不开启断言，需要使用参数`-ea`开启
+使用关键字 `assert`，对指定内容进行判断，默认情况下，Java 并不开启断言，需要使用参数 `-ea` 开启
 
-当断言开启时，如果判断结果为false，则会抛出`AssertionError`
+当断言开启时，如果判断结果为 false，则会抛出 `AssertionError`
 
 ```java
 class Test {
@@ -319,7 +325,4 @@ class Test {
 
 java -ea Test
 ```
-
-## 参考
-[1] [阿里云大学 | 李兴华 - Java语言基础](https://edu.aliyun.com/roadmap/java?spm=5176.13345299.1392477.3.63ddf153q7QkVf)
 

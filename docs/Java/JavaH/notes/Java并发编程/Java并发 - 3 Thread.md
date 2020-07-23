@@ -16,6 +16,8 @@ public class Thread extends Object implements Runnable {
     static void sleep​(long millis) throws InterruptedException; // ms
     static void yield()     // 告诉 scheduler 当前线程愿意让出 CPU 时间片
 
+    void setDaemon​(boolean on) // Marks this thread as daemon thread or not
+
     String getName();                  
     void setName​(String name); 
 
