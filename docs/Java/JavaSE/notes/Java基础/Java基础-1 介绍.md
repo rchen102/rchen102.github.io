@@ -7,18 +7,18 @@ tags:
 ---
 ## Java特性
 1. 面向对象: 封装，继承，多态
-2. 可移植性: JVM -> 书写一次到处运行(Write Once, Run Anywhere) 
-3. 垃圾回收(Garbage Collection): 自动实现垃圾的释放，以及内存空间的回收
+2. 可移植性: JVM -> 书写一次到处运行（Write Once, Run Anywhere） 
+3. 垃圾回收（Garbage Collection）: 自动实现垃圾的释放，以及内存空间的回收
 4. 引用传递: 避免了指针操作，使用了更为简单的引用传递就行处理
 5. 多线程编程支持
 6. 适合分布式计算: 本质是为网络开发而准备的
 
 ## Java运行
-    源代码(.java) -> Javac编译(.class) -> JVM将字节码转换为机器码并运行
+    源代码(.java) -> Javac 编译(.class) -> JVM 解释或编译执行字节码
 
-Java的编译不同于`C`,`C++`，由编译器`Javac`编译源码生成的`.class`文件中实际上是字节码(`bytecode`)，而非可以直接运行的机器码，JVM通过类加载器(`Class-Loader`)加载字节码，解释或者执行
+**跨平台的特性**：通过字节码和 JVM 实现，Java 的编译不同于`C`,`C++`，由编译器`Javac`编译源码生成的`.class`文件中实际上是字节码(`bytecode`)，而非可以直接运行的机器码，JVM 通过类加载器(`Class-Loader`)加载字节码，解释或者编译执行
 
-Java通过字节码和JVM实现了跨平台的特性。
+[**即时编译**](https://blog.csdn.net/qq_36042506/article/details/82976586)（Just In Time）：早期 Java 还算是解释型语言，但是在拥有 JIT 的 JVM 环境下，Java 已经不再严格是解释型了。JVM 会将执行频率高的方法或语句块通过 JIT 编译成本地机器码，提高代码执行效率
 
 ::: tip 提示
 编译型：源代码直接编译生成可执行的机器码；运行速度快，跨平台性差  
@@ -38,9 +38,9 @@ Java通过字节码和JVM实现了跨平台的特性。
 </div>
 
 ## Java规范
-1. 一个源文件(`.java`)只能有一个public类，且类名与源文件名保持一致
-2. 一个源文件(`.java`)可以有多个非public类（实际上就是`default`权限，只允许同一个包下的类访问），编译时会每个类会生成自己的`.class`文件
-3. 主方法：程序的入口`public static void main(String[] args)`
+1. 一个源文件（`.java`）只能有一个 public 类，且类名与源文件名保持一致
+2. 一个源文件（`.java`）可以有多个非 public 类（实际上就是`default`权限，只允许同一个包下的类访问），编译时会每个类会生成自己的`.class`文件
+3. 主方法：程序的入口 `public static void main(String[] args)`
 4. 三种注释方法
 
 ```java

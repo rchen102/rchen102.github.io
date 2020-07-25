@@ -2,6 +2,7 @@ module.exports = [
 	{
 	  title:'Java 进阶',
 	  collapsable: true,
+	  sidebarDepth: 1,
 	  children:[
 	  	'/Java/JavaH/notes/Java进阶/Java进阶-1 注解',
 	  ]
@@ -9,6 +10,7 @@ module.exports = [
 	{
 	  title:'Java 集合',
 	  collapsable: true,
+	  sidebarDepth: 1,
 	  children:[
 	  	'/Java/JavaH/notes/Java集合/Collection - 1 Iterable',
 	  	'/Java/JavaH/notes/Java集合/Collection - 2 Collection',
@@ -62,6 +64,14 @@ module.exports = [
 	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 1 网络编程介绍',
 	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 2 TCP',
 	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 3 Echo',
+	  ]
+	},
+	{
+	  title:'JVM',
+	  collapsable: true,
+	  sidebarDepth: 1,
+	  children:[
+	  	'/Java/JavaH/notes/JVM/JVM - 1 内存结构',
 	  ]
 	},
 ]
