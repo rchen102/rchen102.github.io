@@ -74,6 +74,17 @@ class Demo {
     + JDK1.6 以前：由于字符串池引用的字符串对象本身存在永久代，因此会在永久代创建 equals(s1) 的字符串，池中存放其引用，并将引用返回
     + JDK1.7 后：此时字符串池引用的字符串对象本身存储在 Heap，不再 Heap 中重复创建 equals(s1) 的字符串对象，而是将 s1 的引用直接存放进池中，并返回该引用
 
+```java
+public static void main(String[] args) {
+    String s1 = new String("1") + new String("1");  
+    s1.intern();
+    String s2 = "11";
+    System.out.println(s1 == s2);
+    // JDK1.6  false
+    // JDK1.7+ true
+}
+```
+
 [理解Java字符串常量池与intern()方法](https://www.cnblogs.com/justcooooode/p/7603381.html)
 
 ## 方法API
