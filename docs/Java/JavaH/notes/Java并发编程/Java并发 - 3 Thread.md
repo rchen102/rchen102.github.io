@@ -1,5 +1,5 @@
 ---
-title: 线程控制 - Thread API 的使用
+title: Java 线程控制 - Thread API
 date: 2020-07-15 18:00:00
 categories: 
 tags:
