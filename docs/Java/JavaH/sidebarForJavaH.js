@@ -51,10 +51,11 @@ module.exports = [
 	  collapsable: true,
 	  sidebarDepth: 1,
 	  children:[
+	  	'/Java/JavaH/notes/Java并发编程/Java并发编程 - 1 实现多线程',
+	  	'/Java/JavaH/notes/Java并发编程/Java并发编程 - 2 Thread API',
 	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 1 多线程介绍',
-	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 2 Java实现多线程',
-	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 3 Thread',
-	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 4 JMM',
+	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 2 三大特性',
+	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 3 JMM',
 	  ]
 	},
 	{
