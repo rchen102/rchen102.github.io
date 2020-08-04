@@ -58,6 +58,11 @@ CPU 在进行任务调度时，不同任务的切换可能发生在任何一条 
 2. 指令级并行的重排序：现代 CPU 采用指令级并行技术，如果不存在数据依赖，可以多条指令重叠执行
 3. 内存系统的重排序：由于 CPU 使用缓存和读/写缓冲区，使得 load/store 操作看上去可能是在乱序执行
 
+Java 中重排序，主要分为两类，分别对应编译时和运行时，即**编译期重排序**和**运行期重排序**，重排序满足以下两个条件：
+
+1. 遵守 as - if - serial 语义，即单线程环境下，重排序后的运行结果与顺序执行是相同的
+2. 不对存在数据依赖关系的指令进行重排序
+
 <div align=center>
 
 <img src="/img/Java/Reorder.png" style="zoom:100%">
@@ -69,7 +74,7 @@ CPU 在进行任务调度时，不同任务的切换可能发生在任何一条 
 
 
 <details>
-<summary>编译器级别 - 无依赖关系指令</summary>
+<summary>案例 1：编译器级别 - 无依赖关系指令</summary>
 
 ```java
 /**
@@ -97,18 +102,33 @@ public class ReorderDemo {
 </details>
 
 <details>
-<summary>指令级别 - 双重检查创建单例对象</summary>
+<summary>案例 2：指令级别 - 双重检查创建单例对象</summary>
 
 ```java
 /**
  * 双重 null 检查创建单例对象
+ * new 操作需要 3 个指令完成：
+ *  1. 分配一块内存 M
+ *  2. 在内存 M 上初始化 Singleton 对象
+ *  3. 将 M 的地址赋值给 instance 变量
+ *
  * 正常情况：
  *  1. 线程 A，线程 B 同时调用 getInstance()
  *  2. 同时发现 instance == null，竞争对 Singleton.class 加锁
- *  3，JVM 保证只有一个线程成功，假设 A 成功
- *  4. A 创建一个 Singleton 实例，释放锁
+ *  3，JVM 保证只有一个线程成功获得锁，假设 A 成功
+ *  4. A new 一个 Singleton 实例，释放锁
  *  5. B 获得锁，且发现 instance != null，不会重复创建实例
  *
+ * 重排序后：指令按照 1，3，2 执行
+ *  1. 线程 A 获得锁，执行 new 语句，当执行完指令 3 时发生线程切换
+ *  2. 线程 B 调用 getInstance()，执行第一个判断 instance == null
+ *     发现 instance ！= null，直接返回 instance
+ *  3. 此时 instance 是还未初始化的，一旦访问其成员变量，会触发空指针异常
+ *
+ * 注：
+ *  正常情况下，如果当 A 执行完指令 2 后发生线程切换
+ *  虽然不会出现空指针异常，但是实际上会创建两个 Singleton 实例
+ *  属于线程切换带来的原子性问题
  */
 public class Singleton {
     static Singleton instance;
@@ -126,3 +146,7 @@ public class Singleton {
 
 </details>
 
+---
+参考：
+
+[1] [极客时间 | Java 并发编程实战](https://time.geekbang.org/column/article/83682)
