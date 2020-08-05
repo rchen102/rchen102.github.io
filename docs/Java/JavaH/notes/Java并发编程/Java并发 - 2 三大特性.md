@@ -4,7 +4,6 @@ date: 2020-08-02 17:53:00
 categories: 
 tags:
 ---
-## 硬件的效率问题
 尽管硬件不断发展，但是核心问题一直存在：**CPU、内存、I/O 设备，三者速度有数量级的差距**，为了平衡三者的速度差异，主要有以下几点措施：
 
 1. CPU 与内存之间增加了**高速缓存**，均衡 CPU 与内存差异
@@ -13,7 +12,13 @@ tags:
 
 这些措施虽然平衡了三者速度的差异，但也带来了问题
 
-### 缓存导致的可见性问题
+## 缓存导致的可见性问题
+<div align=center>
+
+<img src="/img/Java/JMMCPU.png" style="zoom:70%">
+
+</div>
+
 多线程环境下，一个线程修改了共享变量的值，其他线程能够立即看到，称为**可见性**（Visibility）
 
 - **单核场景下**：所有线程在一个 CPU 上执行，所有线程都操作同一个 CPU 缓存，因此不存在可见性问题
@@ -21,14 +26,34 @@ tags:
 
 因此，需要各个处理器访问缓存时都遵循一些协议，在读写时要根据协议进行操作，来维护缓存的一致性，比如 MESI 协议
 
-<div align=center>
+```java
+/** 
+ * 错误案例：程序永远不会打印 end
+ *
+ * 解决方案：使用 volatile 修饰 flag 保证可见性
+ */
+public class VolatileTest {
+    public static boolean flag = false;
 
-<img src="/img/Java/JMMCPU.png" style="zoom:70%">
+    public static void main(String[] args) throws Exception {
+        new Thread(() -> {
+            System.out.println("waiting....");
+            while (!flag) {
+            }
+            System.out.println("end");
+        }).start();
 
-</div>
+        Thread.sleep(2000);
 
+        new Thread(() -> {
+            flag = true;
+            System.out.println("flag changed");
+        }).start();
+    }
+}
+```
 
-### 线程切换导致的原子性问题
+## 线程切换导致的原子性问题
 一个或多个操作在 CPU 执行过程中不被中断的特性称为**原子性**（Atomicity）
 
 早期 OS 基于进程调度 CPU，现代 OS 通常基于更轻量级的线程来调度
@@ -48,8 +73,7 @@ CPU 在进行任务调度时，不同任务的切换可能发生在任何一条 
 
 这种错误出现的原因，就在于 CPU 能保证的原子操作是 **CPU 指令级别的**，而不是高级语言级别
 
-
-### 指令重排序导致的有序性问题
+## 指令重排序导致的有序性问题
 程序按照代码的先后顺序执行，称为**有序性**（Ordering）
 
 为了充分利用 CPU 内部运算单元高速缓存，编译器和处理器常常会对指令进行**重排序**：
@@ -72,41 +96,37 @@ Java 中重排序，主要分为两类，分别对应编译时和运行时，即
 - **单核环境下**：重排序是提高 CPU 运算速度的一种优化，保证结果与顺序执行相同（as - if - serial）
 - **多核环境下**：如果一个线程的计算任务依赖另一个线程计算任务的中间结果，则代码的顺序性无法保证执行的顺序性，最终的结果也会不同于逻辑结果
 
-
-<details>
-<summary>案例 1：编译器级别 - 无依赖关系指令</summary>
-
 ```java
 /**
+ * 错误案例 1：编译器级别 - 无依赖关系指令
  * 两个线程，一个执行 writer，一个执行 reader
- * 正常情况：A 执行完成后，才会执行 D
- * 重排序后：A 和 B 无依赖关系，因此 B 可能先于 A 执行，导致 D 也先于 A 执行
+ *  正常情况：A 执行完成后，才会执行 D
+ *  重排序后：A 和 B 无依赖关系，因此 B 可能先于 A 执行，导致 D 也先于 A 执行
+ *
+ * 解决方案：使用 volatile 修饰 flag 保证有序性
  */
 public class ReorderDemo {
     int counter = 0;
     boolean flag = false;
 
     public void writer() {
-        counter = 1;  // 1
-        flag = true;  // 2
+        counter = 1;  // A
+        flag = true;  // B
     }
 
     public void reader() {
-        if (flag) {   // 3
-            System.out.println(counter);  //4
+        if (flag) {   // C
+            System.out.println(counter);  // D
         }
     }
 }
 ```
 
-</details>
-
-<details>
-<summary>案例 2：指令级别 - 双重检查创建单例对象</summary>
+---
 
 ```java
 /**
- * 双重 null 检查创建单例对象
+ * 错误案例 2：指令级别 - 双重检查创建单例对象
  * new 操作需要 3 个指令完成：
  *  1. 分配一块内存 M
  *  2. 在内存 M 上初始化 Singleton 对象
@@ -125,10 +145,11 @@ public class ReorderDemo {
  *     发现 instance ！= null，直接返回 instance
  *  3. 此时 instance 是还未初始化的，一旦访问其成员变量，会触发空指针异常
  *
- * 注：
- *  正常情况下，如果当 A 执行完指令 2 后发生线程切换
- *  虽然不会出现空指针异常，但是实际上会创建两个 Singleton 实例
- *  属于线程切换带来的原子性问题
+ * 解决方案：
+ *  使用 volatile 修饰 instance，通过 happen-before 原则
+ *      程序次序规则：指令 2  -> 指令 3，
+ *      volatile 变量规则：指令 3 是对 instance 的写，指令 3 -> if (instance == null)
+ *      => 指令 2，3 -> if (instance == null)
  */
 public class Singleton {
     static Singleton instance;
@@ -143,8 +164,6 @@ public class Singleton {
     }
 }
 ```
-
-</details>
 
 ---
 参考：

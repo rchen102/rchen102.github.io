@@ -12,7 +12,7 @@ Java 内存模型（JMM）主要就是围绕解决可见性、原子性、有序
 JMM 总的来说是一种复杂的规范，从不同视角有不同的定义：
 
 1. **语言视角**：定义了 Java 自己的内存模型，屏蔽掉各种硬件和操作系统的内存访问差异，保证 Java 程序在各个平台下都能达到一致的内存访问效果（不同于 C，直接使用底层硬件的内存模型）
-2. **开发视角**：规范了 JVM 如何提供一些方法，去按需禁用缓存和编译优化，以及解决原子性问题，这些方法包括一些关键字：volatile、synchronized、final，以及 happens - before 规则
+2. **开发视角**：规范了 JVM 如何提供一些方法，去按需禁用缓存和编译优化，以及解决原子性问题，这些方法包括一些关键字：final、volatile、synchronized，以及 happen - before 规则
 
 ::: tip JMM 和 JVM 内存模型
 两者都是一种规范，属于不同层次的划分：  
@@ -54,36 +54,28 @@ JMM 规定所有的共享变量都存储在**主内存**（Main Memory），此�
 | store（存储） | 从工作内存读取变量的值，传输到主内存，准备 write |
 | write（写入） | 将变量的值写入主内存 |
 
-## happens - before
-happens - before 关系用于描述 2 个操作之间的内存可见性：如果操作 A happens - before 操作 B，那么 A 的结果对 B 可见
+## Happen - before 规则
+Happend - before 规则是 Java 1.5 版本对 volatile 语义的增强，进一步解决可见性和有序性问题
 
-对于 JMM 来说，单线程环境下，字节码的顺序天然满足该关系，但是多线程情况下，由于共享变量的同步延迟，则不一定，JMM 实现了以下满足 happens - before 关系的规则：
+Happen - before 实际上是描述 2 个操作之间的**内存可见性**：如果操作 A happen - before 操作 B，那么 A 的结果对 B 可见
 
-- **程序次序规则**，一个线程内，按照代码顺序，书写在前面的操作 happens-before 书写在后面的操作
+Happen - before 规则约束了编译器优化，主要有以下规则：
 
-- **锁定规则**，一个 unLock 操作 happens-before 后面对同一个锁的 lock 操作
+1. **程序顺序性规则**，一个线程内，按照代码顺序，书写在前面的操作 happens-before 书写在后面的操作
 
-- **volatile 变量规则**，对一个变量的写操作 happens-before 后面对这个变量的读操作
+2. **volatile 变量规则**，对一个 volatile 变量的写操作 happens-before 后续对这个变量的读操作
 
-- **传递规则**，如果操作 A happens-before 操作 B，而操作 B 又 happens-before 操作 C，则可以得出操作 A happens-before 操作 C
+3. **传递规则**，如果操作 A happens-before 操作 B，而操作 B 又 happens-before 操作 C，则可以得出操作 A happens-before 操作 C
 
-- **线程启动规则**，Thread 对象的 start() 方法 happens-before 此线程的每个一个动作
+4. **锁定规则**，一个 unLock 操作 happens-before 后面对同一个锁的 lock 操作
 
-- **线程中断规则**，对线程 interrupt() 方法的调用 happens-before 被中断线程的代码检测到中断事件的发生
+5. **线程 start() 规则**，A 线程启动子线程 B，则在 B 能看到 A 在调用 B.start() 之前的所有操作，且 B.start() happens-before 线程 B 中的任意操作
 
-- **线程终结规则**，线程中所有的操作都 happens-before 线程的终止检测，我们可以通过 Thread.join() 方法结束、Thread.isAlive() 的返回值手段检测到线程已经终止执行
+6. **线程 join() 规则**，A 线程调用 B.join()，B 线程结束后，A 线程能看到 B 线程所有操作
 
-- **对象终结规则**，一个对象的初始化完成 happens-before 它的 finalize() 方法的开始
+7. **线程 interrupt() 规则**，对线程 interrupt() 方法的调用 happens-before 被中断线程的代码检测到中断事件的发生
 
-
-
-我感觉就是在use这一步以后，将变量丢到了操作栈以后，你通知过来我的工作内存失效，也不影响我执行引擎继续执行，是不会重读的
-
-重排序
-
-顺序一致性
-
-https://mubu.com/doc/2Q_5ufWdwPk
+8. **对象终结规则**，一个对象的初始化完成 happens-before 它的 finalize() 方法的开始
 
 ---
 参考：
@@ -92,6 +84,4 @@ https://mubu.com/doc/2Q_5ufWdwPk
 
 [2] [算法网 | JVM（十一）Java 内存模型](http://ddrv.cn/a/35646)
 
-[3] [程序新视界 | JAVA内存模型(JMM)详解](https://www.choupangxia.com/2019/11/04/interview-jvm-gc-05/)
-
-[4] [程序新视界 | Java内存模型相关原则详解](https://www.cnblogs.com/secbro/p/11804404.html)
+[3] [极客时间 | Java 并发编程实战](https://time.geekbang.org/column/article/84017)
