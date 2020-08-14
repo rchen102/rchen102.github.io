@@ -94,9 +94,12 @@ join 实现机制：
 
 `interrupt()`：在 A 线程中，调用 B 线程的 interrupt() 方法，会向 B 发出一个中断信号，将中断状态设置为 true，但是**不会真正停止**⼀个线程，只是发送一个中断信号，需要被通知线程，自己决定如何处理
 
-1. 若 B 线程处于阻塞态（Object.wait，Thread.join，Thread.sleep），阻塞函数调用后，会不断地轮询检测中断状态标志是否为 true，如果为 true，则停止阻塞并抛出 InterruptedException 异常，同时重置（reset）中断状态位为 `false`
-2. 若 B 线程处于 IO 阻塞态，则中断标记位设为 `true`，同时抛出 ClosedByInterruptException 异常
+1. 若 B 线程处于阻塞态（Object.wait，Thread.join，Thread.sleep），阻塞函数调用后，会不断地轮询检测中断状态标志是否为 true，如果为 true，则停止阻塞并抛出 InterruptedException 异常，**注意**，抛出异常会重置（reset）中断状态位为 `false`
+
+2. 若 B 线程阻塞在一个 InterruptibleChannel 上的 I/O 操作上，则关闭 channel，且中断标记位设为 `true`，同时抛出 ClosedByInterruptException 异常
+
 3. 若 B 线程阻塞在 Selector 选择器中，则中断标记设为 `true`，并且立即从选择操作中返回
+
 4. 其他情况，中断标记位都会被设为 `true`
 
 ---

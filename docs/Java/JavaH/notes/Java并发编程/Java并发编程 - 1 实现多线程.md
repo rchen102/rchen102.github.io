@@ -138,9 +138,6 @@ class Test {
 
 start() 方法里调用了 start0() 方法，该方法没有方法体，但是使用了 native 的关键字修饰，表示此操作将交由底层实现（JVM 实现，JVM 负责匹配不同 OS 的底层函数）
 
-<details>
-<summary>点击查看 start()</summary>
-
 ```java{3,7}
 public synchronized void start() {
    if (threadStatus != 0)
@@ -164,5 +161,3 @@ public synchronized void start() {
 
 private native void start0();
 ```
-
-</details>

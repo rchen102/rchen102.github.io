@@ -1,5 +1,5 @@
 ---
-title: 详解 - final 和 volatile
+title: 基础理论 - final 和 volatile
 date: 2020-08-04 01:18:00
 categories: 
 tags:

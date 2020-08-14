@@ -20,9 +20,9 @@ module.exports = [
 	  	'/Java/JavaH/notes/Java集合/Collection - 6 Set子类',
 	  	'/Java/JavaH/notes/Java集合/Collection - 7 Map',
 	  	'/Java/JavaH/notes/Java集合/Collection - 8 Map子类',
-	  	'/Java/JavaH/notes/Java集合/Collection - 9 Stack',
 	  	'/Java/JavaH/notes/Java集合/Collection - 10 Queue',
 	  	'/Java/JavaH/notes/Java集合/Collection - 11 Queue子类',
+	  	'/Java/JavaH/notes/Java集合/Collection - 9 Stack',
 	  	'/Java/JavaH/notes/Java集合/Collection - 操作',
 	  ]
 	},
