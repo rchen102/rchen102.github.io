@@ -47,6 +47,14 @@ module.exports = [
 	  ]
 	},
 	{
+	  title:'Java NIO',
+	  collapsable: true,
+	  sidebarDepth: 1,
+	  children:[
+	  	'/Java/JavaH/notes/JavaNIO/overview',
+	  ]
+	},
+	{
 	  title:'Java 并发编程',
 	  collapsable: true,
 	  sidebarDepth: 1,
