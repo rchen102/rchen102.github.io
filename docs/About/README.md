@@ -5,10 +5,9 @@
 
 本博客使用 [vuepress](https://vuepress.vuejs.org/) 搭建 + [Travis CI](https://travis-ci.org/) 自动编译构建
 
-<details>
-<summary>联系方式</summary>
+---
+联系方式：
 
 - wechat: rchen102
-- email: rchen102@binghamton.edu
-
-</details>
+- email: chenrenze9708@qq.com
+- github: https://github.com/rchen102
