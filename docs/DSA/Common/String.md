@@ -20,6 +20,7 @@ public static boolean isPalindrome(String s, int lo, int hi) {
 
 ## 判断变位词 - Anagram
 ```java 
+// 静态判断
 // T: O(n) S: O(k)
 public static boolean isAnagram(String s, String t) {
     if (s == null || t == null || s.length() != t.length()) return false;
@@ -34,13 +35,14 @@ public static boolean isAnagram(String s, String t) {
     return true;
 }
 
-// 字符串动态变化，如 sliding window
+// 动态判断，适合 sliding window
+// 每次动态变化，判断需要的时间复杂度 O(26)
 public static boolean isAnagram(String s) {
     int[] code = new int[26];
     for (char ch : s.toCharArray()) {
         code[ch - 'a'] += 1;
     }
-    while(dynamica change) {
+    while(dynamic change) {
         char add = getNew();      // 加入新字符
         code[add - 'a'] -= 1;
 
@@ -54,6 +56,36 @@ public static boolean isAnagram(String s) {
 
 // 字符串动态编号，且是包含关系，不是严格的 Anagram
 // 使用 2个 HashMap + valid 判断 p76
+```
+
+## 动态判断是否包含另一个字符串全部字符
+```java
+// 动态变化
+// O(1)
+public static boolean doesInclude(String s) {
+    Map<Character, Integer> need = new HashMap<>();
+    Map<Character, Integer> window = new HashMap<>();
+    for (char ch : s.toCharArray()) {
+        need.put(ch, need.getOrDefault(ch, 0) + 1);
+    }
+    int valid = 0; // 当前已经 OK 的字母种类（注意不是字母数量）
+    while (dynamic change) {
+        char add = getNew();
+        if (need.containsKey(add)) {
+            window.put(add, window.getOrDefault(add, 0) + 1);
+            if ((int) window.get(add) == (int) need.get(add)) valid++;
+        }
+
+        char leave = getLeave();
+        if (need.containsKey(leave)) {
+            if ((int) window.get(leave) == (int) need.get(leave)) valid--;
+            window.put(leave, window.get(leave) - 1);
+        }
+
+        if (valid == need.size()) return true;
+    }
+    return false;
+}
 ```
 
 ## 字符串常用相关操作
