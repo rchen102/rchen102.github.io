@@ -47,14 +47,6 @@ module.exports = [
 	  ]
 	},
 	{
-	  title:'Java NIO',
-	  collapsable: true,
-	  sidebarDepth: 1,
-	  children:[
-	  	'/Java/JavaH/notes/JavaNIO/overview',
-	  ]
-	},
-	{
 	  title:'Java 并发编程',
 	  collapsable: true,
 	  sidebarDepth: 1,
@@ -75,6 +67,7 @@ module.exports = [
 	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 1 网络编程介绍',
 	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 2 TCP',
 	  	'/Java/JavaH/notes/Java网络编程/JavaNet - 3 Echo',
+	  	'/Java/JavaH/notes/Java网络编程/JavaNet - NIO',
 	  ]
 	},
 	{

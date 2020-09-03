@@ -62,13 +62,17 @@ FROM student;
 2. 运算符
     + `>, <, >=, <=, =, <>`
     + `BETWEEN...AND`
-    + `IN(集合)`
+    + `IN (集合)`
     + `LIKE`
     + `IS NULL`
 3. 逻辑运算符
     + `AND`或`&&`
     + `OR`或`||`
     + `NOT`或`!`
+
+AND 和 OR 同时存在时，AND 执行的优先级会更高，即 SQL 会优先处理 AND 操作符，再处理 OR 操作符
+
+同样可以通过 `()` 明确指定优先级
 
 ```sql
 # 1. 运算符使用
@@ -94,8 +98,8 @@ SELECT * FROM student WHERE english IS NOT NULL;
 模糊查询使用关键字`LIKE`
 
 ::: tip 占位符
-- `_`单个任意字符
-- `%`多个任意字符
+- `_` 只代表一个字符
+- `%` 零个或多个任意字符
 :::
 
 ```sql
