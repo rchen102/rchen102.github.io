@@ -14,6 +14,8 @@ module.exports = [
 	  children:[
 	  	'/Java/JavaH/notes/Java集合/Collection - 1 Iterable',
 	  	'/Java/JavaH/notes/Java集合/Collection - 2 Collection',
+	  	'/Java/JavaH/notes/Java集合/Collection - Comparable',
+	  	'/Java/JavaH/notes/Java集合/Collection - Collections',
 	  	'/Java/JavaH/notes/Java集合/Collection - 3 List',
 	  	'/Java/JavaH/notes/Java集合/Collection - 4 List子类',
 	  	'/Java/JavaH/notes/Java集合/Collection - 5 Set',

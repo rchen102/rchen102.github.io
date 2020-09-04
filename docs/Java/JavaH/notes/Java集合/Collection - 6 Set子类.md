@@ -8,6 +8,29 @@ tags:
 - LinkedHashSet：基于 **LinkedHashMap**，按元素插入顺序，线程不安全
 - TreeSet：基于 **TreeMap**，元素按照指定顺序排序，线程不安全
 
+<details>
+<summary>定义</summary>
+
+```java
+// since JDK 1.2
+public class HashSet<E>
+extends AbstractSet<E>
+implements Set<E>, Cloneable, Serializable
+
+// since JDK 1.4
+public class LinkedHashSet<E>
+extends HashSet<E>
+implements Set<E>, Cloneable, Serializable
+
+// since JDK 1.2
+public class TreeSet<E>
+extends AbstractSet<E>
+implements NavigableSet<E>, Cloneable, Serializable
+```
+
+</details>
+
+
 ## HashSet
 1. 基于 HashMap 实现  
 (1) 创建一个虚拟对象 Object PRESENT = new Object() 作为 value  
@@ -20,6 +43,13 @@ tags:
 
 4. HashMap 是 transient 的，自己实现了 writeObject 和 readObject，避免空间浪费（25% 是空的）
 
+```java
+HashSet()   // 初始容量 16，装载因子 0.75
+HashSet​(int initialCapacity)   
+HashSet​(int initialCapacity, float loadFactor) 
+HashSet​(Collection<? extends E> c)
+```
+
 ## LinkedHashSet
 1. 继承自 HashSet，基于 LinkedHashMap 实现  
 (1) 结构简单源码只包含 4 个构造方法和一个迭代器方法
@@ -29,15 +59,28 @@ tags:
 
 3. 添加，删除等方法都是使用 HashSet的，唯一不同将内部 map 使用 LinkedHashSet 实现
 
+```java
+LinkedHashSet() // 初始容量 16，装载因子 0.75
+LinkedHashSet​(int initialCapacity) 
+LinkedHashSet​(int initialCapacity, float loadFactor)   
+LinkedHashSet​(Collection<? extends E> c)
+```
 
 ## TreeSet
-1. 底层存储类型为 NavigableMap
+1. 底层存储类型为 NavigableMap  
 (1) public 构造方法都是使用 TreeMap 实现，不代表只能 TreeMap 实现    
-(2) 但是存在一个 default TreeSet(NavigableMap<E,Object> m)，用于同 package 使用
+(2) 存在一个 default TreeSet(NavigableMap<E,Object> m)，用于同 package 使用
 
 2. 元素排序规则有两种方法指定  
 (1) 元素自身实现了 Comparable 接口，重写 int compareTo() 方法  
 (2) 创建时，指定一个比较器 Comparator
+
+```java
+TreeSet()  
+TreeSet​(Collection<? extends E> c) // 按照 natural ordering
+TreeSet​(Comparator<? super E> comparator)  
+TreeSet​(SortedSet<E> s)
+```
 
 ---
 **参考链接**

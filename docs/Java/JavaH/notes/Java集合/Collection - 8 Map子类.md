@@ -68,6 +68,12 @@ implements Map<K,​V>
 (1) 当 resize() 拆分红黑树时，拆分后，若发现单个桶中元素数量 `<= 6`，进行反树化  
 (2) 当 remove() 是从红黑树中删除结点时，如果发现根或左右结点其一为空，说明结点过少 `<= 2`，转为链表
 
+```java
+HashMap()   // 默认初始容量 16，装载因子 0.75
+HashMap​(int initialCapacity)   
+HashMap​(int initialCapacity, float loadFactor) 
+HashMap​(Map<? extends K,​? extends V> m)
+```
 
 ## Hashtable
 Hashtable 是 JDK 1.0 时期的产物，对比 HashMap
@@ -79,6 +85,12 @@ Hashtable 是 JDK 1.0 时期的产物，对比 HashMap
 5. Hashtable 使用链表法作为哈希冲突的解决，没有红黑树优化
 6. Hashtable 是线程安全的
 
+```java
+Hashtable()  // 11, 0.75
+Hashtable​(int initialCapacity) 
+Hashtable​(int initialCapacity, float loadFactor)   
+Hashtable​(Map<? extends K,​? extends V> t)
+```
 
 ## LinkedHashMap
 1. 继承自 HashMap，基于 HashMap 和 双向链表实现  
@@ -102,6 +114,14 @@ Hashtable 是 JDK 1.0 时期的产物，对比 HashMap
 (1) afterNodeInsertion 中会根据该方法判断，是否需要移除旧元素，默认返回 false
 (2) 可以利用继承 LinkedHashMap，重写该方法实现 LRU
 
+```java
+LinkedHashMap() // 16, 0.75
+LinkedHashMap​(int initialCapacity) 
+LinkedHashMap​(int initialCapacity, float loadFactor)   
+LinkedHashMap​(int initialCapacity, float loadFactor, boolean accessOrder) 
+LinkedHashMap​(Map<? extends K,​? extends V> m)
+```
+
 
 ## TreeMap
 1. 实现接口比较特殊 NavigableMap -> SortedMap -> Map，拓展了许多 Map 没有的方法
@@ -116,6 +136,13 @@ Hashtable 是 JDK 1.0 时期的产物，对比 HashMap
 4. TreeMap 内部遍历的实现没有采用递归，实现比较有意思  
 (1) `for (Entry<K, V> e = getFirstEntry(); e != null; e = successor(e))`
 
+
+```java
+TreeMap()   
+TreeMap​(Comparator<? super K> comparator)  
+TreeMap​(Map<? extends K,​? extends V> m)   
+TreeMap​(SortedMap<K,​? extends V> m)
+```
 
 ---
 **参考链接**

@@ -17,9 +17,22 @@ tags:
 6. 求并集：`addAll()`；求交集：`retainAll()`；求差集：`removeAll()`
 7. 使用 `transient` 修饰内部数组，但实现了 `readObject` 和 `writeObject`，避免浪费空间
 
+```java
+ArrayList() // 默认初始容量 10
+ArrayList​(int initialCapacity) 
+ArrayList​(Collection<? extends E> c)  // 都是浅拷贝
+```
+
 ## Vector
 1. JDK 1.0 推出的早期集合类，线程安全，所有方法都以 synchronized 修饰
 2. JDK 1.2 集合框架推出后，令 Vector 实现了 List 接口，保证向后兼容
+
+```java
+Vector()    
+Vector​(int initialCapacity)    
+Vector​(int initialCapacity, int capacityIncrement) 
+Vector​(Collection<? extends E> c)
+```
 
 
 ## LinkedList
@@ -29,6 +42,11 @@ tags:
 4. `node(index)` 获得下标对应结点，索引小于 `size/2`，从前向后遍历，否则，从后向前遍历
 5. 首尾添加，删除元素比较高效，时间复杂度 `O(1)`
 6. 中间添加，删除元素比较低效，时间复杂度 `O(n/2)`
+
+```java
+LinkedList()    
+LinkedList​(Collection<? extends E> c)
+```
 
 ---
 **参考链接**
