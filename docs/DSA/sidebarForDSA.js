@@ -59,4 +59,12 @@ module.exports = [
 	  	'/DSA/Common/String',
 	  ]
 	},
+	{
+	  title:'设计实现',
+	  collapsable: true,
+	  children:[
+	  	'/DSA/Design/LRU',
+	  	'/DSA/Design/LFU',
+	  ]
+	},
 ]
