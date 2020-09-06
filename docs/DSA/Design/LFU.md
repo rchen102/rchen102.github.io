@@ -9,9 +9,8 @@ tags:
 ```java
 package driver;
 
-import java.util.Deque;
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.LinkedHashSet;
 import java.util.Map;
 
 /**
@@ -32,14 +31,12 @@ public class LFU<K,V> {
     }
 
     private int capacity;
-    private int size;
     private int minFreq;
 
     private Map<K, Node> cache;
-    private Map<Integer, Deque<Node>> counter;
+    private Map<Integer, LinkedHashSet<K>> counter;
 
     public LFU(int capacity) {
-        this.size = 0;
         this.minFreq = 0;
         this.capacity = capacity;
         cache = new HashMap<>();
@@ -56,66 +53,64 @@ public class LFU<K,V> {
     }
 
     public void put(K key, V value) {
+        if (capacity == 0) return;
         if (cache.containsKey(key)) {
             Node node = cache.get(key);
             node.value = value;
             addFrequency(node);
         } else {
-            if (size == capacity) {
+            if (cache.size() == capacity) {
                 popOld();
             }
-            if (size < capacity) {
-                Node node = new Node(key, value);
-                cache.put(key, node);
-                size++;
-                addFrequency(node);
-            }
+            // insert new data to lru
+            Node node = new Node(key, value);
+            cache.put(key, node);
+            addFrequency(node);
         }
     }
 
-    
+
     /**
      * 弹出当前频率最低且最少访问
-     * 无需担心 minFreq，因为弹出，则代表一定有新的加入，minFreq = 1
+     * 无需更新 minFreq，新插入元素，minFreq 会被重置为 1
      */
     private void popOld() {
-        if (size <= 0) return;
-        Deque<Node> queue = counter.get(minFreq);
-        Node toRemove = queue.pollFirst();
-        cache.remove(toRemove.key);
-        size--;
+        LinkedHashSet<K> set = counter.get(minFreq);
+        // 获取
+        K toLeave = set.iterator().next();
+        set.remove(toLeave);
+        cache.remove(toLeave);
     }
-    
-    
+
+
     private void addFrequency(Node node) {
-        // 1. update node
         int oldFreq = node.count;
         int newFreq = oldFreq + 1;
         node.count = newFreq;
-        
-        // 2. update counter
-        // remove old
-        Deque<Node> queue = counter.get(oldFreq);
-        if (queue != null) {
-            queue.remove(node);
-        }
-        // add new
-        if (counter.containsKey(newFreq)) {
-            queue = counter.get(newFreq);
-            queue.offerLast(node);
-        } else {
-            queue = new LinkedList<>();
-            queue.offerLast(node);
-            counter.put(newFreq, queue);
+
+        // if insert new node
+        if (oldFreq == 0) {
+            LinkedHashSet<K> set = counter.get(1);
+            if (set == null) {
+                set = new LinkedHashSet<>();
+                counter.put(1, set);
+            }
+            set.add(node.key);
+            minFreq = 1;
+            return;
         }
 
-        // 3. update min frequency，注意这里容易出错
-        if (oldFreq == 0) {
-            minFreq = 1;
+        // if update old node
+        LinkedHashSet<K> newSet = counter.get(newFreq);
+        if (newSet == null) {
+            newSet = new LinkedHashSet<>();
+            counter.put(newFreq, newSet);
         }
-        else {
-            if (oldFreq == minFreq && counter.get(oldFreq).isEmpty()) minFreq++;
-        }
+        newSet.add(node.key);
+
+        LinkedHashSet<K> oldSet = counter.get(oldFreq);
+        oldSet.remove(node.key);
+        if (oldFreq == minFreq && oldSet.size() == 0) minFreq++;
     }
 }
 ```
