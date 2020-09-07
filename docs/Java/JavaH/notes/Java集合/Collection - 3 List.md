@@ -21,7 +21,8 @@ boolean addAll​(int index, Collection<? extends E> c)
 
 E set​(int index, E element)
 E get​(int index)
-E remove​(int index) // 注意List<Integer>，int类型代表下标，Integer类型代表元素
+E remove​(int index) // 注意，对于 List<Integer>，int 类型代表下标，Integer 类型才代表元素
+boolean remove​(Object o) // 对比继承 Collection，根据 equals 删除元素（支持 null）
 
 int indexOf​(Object o)       // 获取第一次出现的下标，-1 不存在
 int lastIndexOf​(Object o)   // 获取最后一次出现的下标，-1 不存在

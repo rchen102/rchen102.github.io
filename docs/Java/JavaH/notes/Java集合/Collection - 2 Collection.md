@@ -19,7 +19,7 @@ java.util.Collection 接口是单值集合操作的最大父接口（每次只�
  */
 public interface Collection<E> extends Iterable<E> {
     boolean add​(E e) 
-    boolean remove​(Object o)    // 删除1个数据，需要equals()方法支持，可以删除null
+    boolean remove​(Object o)    // 删除1个数据，需要equals()方法支持，可以删除 null
     boolean contains​(Object o)  // 需要equals()方法支持
 
     boolean addAll​(Collection<? extends E> c)

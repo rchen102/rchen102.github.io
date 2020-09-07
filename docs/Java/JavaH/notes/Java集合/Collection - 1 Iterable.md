@@ -72,11 +72,11 @@ public static void remove(List<Integer> list, int target) {
 
 
 ::: tip 快速失败 fast - fail
-- 当使用 Iterator 迭代时，如对集合进行修改，会抛出 ConcurrentModificationException 异常
+- 当使用 Iterator 迭代时，如果本线程（迭代过程中）或者其他线程，对同一个集合执行了 add，remove，clear 等涉及修改元素个数的操作时，会抛出 ConcurrentModificationException
 - 实现方式：
-    + 存在 modCount 用于记录集合操作过程中作的修改次数（不一定等于 size）
+    + 存在 modCount，当执行涉及修改集合元素个数的操作时，modCount++（因此不一定等于 size）
     + 每次创建 Iterator 时，迭代器会存储集合当前的 modCount
-    + 当 next() 调用前，都会检查 modCount 是否发生了改变，如改变则抛出异常 
+    + 每次 next() 调用前，都会检查 modCount 是否发生了改变，如改变则抛出异常 
 - 快速失败机制只尽力抛出异常，不提供保证，因此不能依赖该异常编写程序
 - 并非所有集合都具有该机制，具有最终一致性的 ConcurrentHashMap 等都是没有 fast-fail
 
@@ -132,11 +132,12 @@ public class LinkedList<T> implements Iterable<T> {
     }
 
     @Override
-    public java.util.Iterator<T> iterator() {
+    public Iterator<T> iterator() {
         cursor = root;
         return new LinkedListIterator();
     }
 
+    // 内部类，自动继承了泛型，因此这里无需声明泛型<T>
     private class LinkedListIterator implements Iterator<T> {
         @Override
         public boolean hasNext() {
