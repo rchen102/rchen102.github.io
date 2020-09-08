@@ -1,9 +1,13 @@
 ---
-title: 事务
+title: 索引
 date: 2020-09-08 00:02:00
 categories: 
 tags:
 ---
+## 索引的使用
+
+//TODO：原理介绍，有空再更
+
 ```sql
 CREATE INDEX index_name ON table_name (column_name);
 CREATE UNIQUE INDEX index_name ON table_name (column_name);
