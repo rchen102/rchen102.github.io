@@ -16,6 +16,7 @@ module.exports = [
 		'/DB/notes/MySQL/MySQL-10 范式',
 		'/DB/notes/MySQL/MySQL-11 多表查询',
 		'/DB/notes/MySQL/MySQL-12 事务',
+		'/DB/notes/MySQL/MySQL-13 索引',
 	  ]
 	},
 	{
