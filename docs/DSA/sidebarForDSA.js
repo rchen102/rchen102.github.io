@@ -57,6 +57,7 @@ module.exports = [
 	  	'/DSA/Common/SlidingWindow',
 	  	'/DSA/Common/LinkedList',
 	  	'/DSA/Common/String',
+	  	'/DSA/Common/TreeRelated',
 	  ]
 	},
 	{
