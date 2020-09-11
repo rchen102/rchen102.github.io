@@ -49,7 +49,7 @@ module.exports = [
 	  ]
 	},
 	{
-	  title:'常用算法',
+	  title:'常用算法模板',
 	  collapsable: true,
 	  children:[
 	  	'/DSA/Common/ArrayRelated',
@@ -58,6 +58,7 @@ module.exports = [
 	  	'/DSA/Common/LinkedList',
 	  	'/DSA/Common/String',
 	  	'/DSA/Common/TreeRelated',
+	  	'/DSA/Common/Backtrack',
 	  ]
 	},
 	{
