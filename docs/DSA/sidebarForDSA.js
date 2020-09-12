@@ -59,6 +59,7 @@ module.exports = [
 	  	'/DSA/Common/String',
 	  	'/DSA/Common/TreeRelated',
 	  	'/DSA/Common/Backtrack',
+	  	'/DSA/Common/DP',
 	  ]
 	},
 	{
