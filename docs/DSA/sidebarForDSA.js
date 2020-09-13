@@ -56,8 +56,9 @@ module.exports = [
 	  	'/DSA/Common/BinarySearch',
 	  	'/DSA/Common/SlidingWindow',
 	  	'/DSA/Common/LinkedList',
-	  	'/DSA/Common/String',
 	  	'/DSA/Common/TreeRelated',
+	  	'/DSA/Common/String',
+	  	'/DSA/Common/BitRelated',
 	  	'/DSA/Common/Backtrack',
 	  	'/DSA/Common/DP',
 	  ]

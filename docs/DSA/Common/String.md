@@ -53,14 +53,11 @@ public static boolean isAnagram(String s) {
     }
     return false;
 }
-
-// 字符串动态编号，且是包含关系，不是严格的 Anagram
-// 使用 2个 HashMap + valid 判断 p76
 ```
 
-## 动态判断是否包含另一个字符串全部字符
+## 判断一个字符串是否包含另一个字符串（Anagram 属于该分类下的特例）
 ```java
-// 动态变化
+// 动态判断，适合 sliding window
 // O(1)
 public static boolean doesInclude(String s) {
     Map<Character, Integer> need = new HashMap<>();
