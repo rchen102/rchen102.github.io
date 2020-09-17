@@ -143,6 +143,8 @@ public class ReorderDemo {
  *  1. 线程 A 获得锁，执行 new 语句，当执行完指令 3 时发生线程切换
  *  2. 线程 B 调用 getInstance()，执行第一个判断 instance == null
  *     发现 instance ！= null，直接返回 instance
+ *     （注意：31 行才是出错的关键，synchronize 可以保证可见性和有序性，但是这针对同步块内的
+ *          即，如果有线程 C 阻塞在 32，阻塞结束后，进入同步区，然后返回，是不会出现问题的）
  *  3. 此时 instance 是还未初始化的，一旦访问其成员变量，会触发空指针异常
  *
  * 解决方案：

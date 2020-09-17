@@ -33,19 +33,21 @@ __对象__: 对象根据类创建，是类的一个实例
 ### 优点/目的
 - 隐藏信息和实现细节
 - 通过实现好的方法对字段进行访问和修改，避免不合理的访问，提高了安全性
-- 良好的封装可以减少耦合，修改类的内部结构，不影响对外的API
+- 良好的封装可以减少耦合，修改类的内部结构，不影响对外的 API
 
 ### 访问修饰符
-Java通过访问修饰符(Access modifiers)，控制类、变量、方法的访问，支持4种不同的修饰符
-- __default__: 也称package-private，在同一package下可见。可以修饰：类、接口、变量、方法
-- __private__: 仅在同一class内可见。可以修饰：变量、方法
-- __protected__: 仅对同一package的class和所有sub-class可见。可以修饰：变量、方法
-- __public__: 对所有class可见。可以修饰：类、接口、变量、方法
+Java通过访问修饰符(Access modifiers)，控制类、变量、方法的访问，支持 4 种不同的修饰符
+- __default__: 也称 package-private，在同一 package 下可见。可以修饰：类、接口、变量、方法
+- __private__: 仅在同一 class 内可见。可以修饰：变量、方法
+- __protected__: 仅对同一 package 的 class 和所有 sub-class 可见。可以修饰：变量、方法
+- __public__: 对所有 class 可见。可以修饰：类、接口、变量、方法
 
 ::: warning 注意
 `default`指的是默认情况下，即不加任何访问修饰符时的访问控制状态
 
 不能直接使用`default`作为访问修饰符，`default`关键词实际上用于接口方法定义
+
+同一个类的实例，在内部可以互相访问对方的 `private` 属性：访问修饰符在类级别而不是在对象级别上工作
 :::
 
 | |  default  | private | protected | public |

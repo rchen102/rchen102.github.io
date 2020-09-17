@@ -8,7 +8,8 @@ tags:
 - Hashtable：基于**数组**，**单链表**，无序，线程安全
 - LinkedHashMap：基于 **HashMap**，**双向链表**，按插入顺序或访问顺序，线程不安全
 - TreeMap：基于**红黑树**，按照 key 从小到大排序，线程不安全
-- ConcurrentHashMap
+- ConcurrentHashMap：HashMap 的线程安全版本，也是基于**数组，单链表，红黑树**
+
 
 
 <details>
@@ -33,6 +34,10 @@ implements Map<K,​V>
 
 </details>
 
+## ConcurrentHashMap
+
+
+
 ## HashMap
 1. 基于数组，单链表，红黑树实现，数组的一个位置称为桶  
 (1) 基本结点 Node<K,V> 实现了 Map.Entry<K,V> 接口  
@@ -51,14 +56,15 @@ implements Map<K,​V>
 
 5. 插入操作 put()：通过 hash(key) 方法得到 hash 值，再由 hash 值计算索引  
 (1) 哈希值：由 key 的 hashCode 计算，高 16 位不变，低 16 位与高 16 位做一次异或运算，这样通过按位与取模时，高 16 位也能参与散列  
-(2) 索引：采用高效的按位与操作，index = (n - 1) & hash()，n 是容量
+(2) 索引：采用高效的按位与操作，index = (n - 1) & hash()，n 是容量  
+(3) key 为 null 时，hash 值之间取 0
 
 6. 扩容操作 resize()：每次扩容为原来 `2 倍`  
 (1) 由取模算法可知，扩容后元素的桶位置只有两种可能：原位置 or 原位置 + oldCap  
 (2) 此时会对桶中的链表或红黑树进行拆分，分成以上两类
 
 7. 树化操作 treeifyBin()：发生在插入新元素时，当单个桶中元素数量 `>= 8` 时发生  
-(1) 若此时，桶的数量 `< 64` ，扩容代替树化操作  
+(1) 若此时，桶的数量 `< 64` ，扩容代替树化操作，扩容会拆分链表，也能起到一定作用  
 (2) 若此时，桶的数量 `>= 64`，树化操作进行  
 (3) 链表过长时，查找效率低下，可以利用红黑树快速增删改查的特点提高性能  
 (4) 但是当红黑树中结点太少时，红黑树要维持平衡，比起链表，性能优势并不明显  
@@ -110,7 +116,7 @@ Hashtable​(Map<? extends K,​? extends V> t)
 (3) afterNodeRemoval：remove 调用时触发，从双向链表中删除对应结点  
 (4) newNode：插入新元素时触发，用于创建结点，创建 Entry<K,V> 替换原先的 Node<K,V>
 
-5. 默认不会插入元素时，不会移除旧元素，如果有需要，重写方法 boolean removeEldestEntry()
+5. 默认插入元素时，不会移除旧元素，如果有需要，重写方法 boolean removeEldestEntry()
 (1) afterNodeInsertion 中会根据该方法判断，是否需要移除旧元素，默认返回 false
 (2) 可以利用继承 LinkedHashMap，重写该方法实现 LRU
 

@@ -59,6 +59,8 @@ module.exports = [
 	  	'/Java/JavaH/notes/Java并发编程/Java并发 - 4 volatile',
 	  	'/Java/JavaH/notes/Java并发编程/Java并发编程 - 1 实现多线程',
 	  	'/Java/JavaH/notes/Java并发编程/Java并发编程 - 2 Thread API',
+	  	'/Java/JavaH/notes/Java并发编程/案例场景1',
+	  	'/Java/JavaH/notes/Java并发编程/案例场景2',
 	  ]
 	},
 	{
