@@ -65,7 +65,7 @@ Happen - before 规则约束了编译器优化，编译器优化需要遵守 Hap
 
 2. **volatile 变量规则**，对一个 volatile 变量的写操作 happens-before 后续对这个变量的读操作
 
-3. **传递规则**，如果操作 A happens-before 操作 B，而操作 B 又 happens-before 操作 C，则可以得出操作 A happens-before 操作 C
+3. **传递规则**，如果操作 A happens-before 操作 B，而操作 B 又 happens-before 操作 C，则可以得出操作 A happens-before 操作 C（本条是对 volatile 语义的增强）
 
 4. **锁定规则**，一个 unLock 操作 happens-before 后面对同一个锁的 lock 操作，解锁的时候，JVM需要强制刷新缓存，使得当前线程所修改的内存对其他线程可见
 

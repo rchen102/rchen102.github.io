@@ -65,7 +65,7 @@ Java 语言中，volatile 关键字主要具备 2 种语义，可见性和有序
 
 <div align=center>
 
-<img src="/img/Java/volatileW.png" style="zoom:70%">
+    <img src="/img/Java/volatileW.png" style="zoom:70%">
 
 </div>
 
@@ -73,7 +73,7 @@ Java 语言中，volatile 关键字主要具备 2 种语义，可见性和有序
 
 <div align=center>
 
-<img src="/img/Java/volatileR.png" style="zoom:70%">
+    <img src="/img/Java/volatileR.png" style="zoom:70%">
 
 </div>
 
