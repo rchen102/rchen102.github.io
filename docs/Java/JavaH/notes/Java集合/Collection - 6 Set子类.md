@@ -68,7 +68,7 @@ LinkedHashSet​(Collection<? extends E> c)
 
 ## TreeSet
 1. 底层存储类型为 NavigableMap  
-(1) public 构造方法都是使用 TreeMap 实现，不代表只能 TreeMap 实现    
+(1) 通常我们使用的 public 构造方法都是基于 TreeMap 实现，但是不代表只能 TreeMap 实现    
 (2) 存在一个 default TreeSet(NavigableMap<E,Object> m)，用于同 package 使用
 
 2. 元素排序规则有两种方法指定  

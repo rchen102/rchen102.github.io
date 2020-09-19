@@ -34,9 +34,6 @@ implements Map<K,​V>
 
 </details>
 
-## ConcurrentHashMap
-
-
 
 ## HashMap
 1. 基于数组，单链表，红黑树实现，数组的一个位置称为桶  
@@ -45,7 +42,8 @@ implements Map<K,​V>
 
 2. 默认初始容量 `16`，装载因子 `0.75`，容量总是保持 `2^n`（方便按位与操作取模）  
 (1) 如传入容量参数 k，默认向上拓展至 k 最近的 `2^n` 作为容量  
-(2) 懒加载：HashMap 被首次使用时，才进行初始化开辟空间
+(2) 懒加载：HashMap 被首次使用（初次调用 put() 操作），才进行初始化开辟空间  
+(3) 为什么默认 0.75：经过随机 hash 码测试，节点在 hash 桶中遵循泊松分布，当阈值设为 0.75 时，单个链表的长度超过 8 的可能性微乎其微 [Link](https://www.cnblogs.com/aspirant/p/11470928.html)
 
 3. key 比较：先通过 hashCode() 找到对应的桶，如相同再比较 equals()  
 (1) 因此自定义类要注意同时重写两个方法  
@@ -86,10 +84,11 @@ Hashtable 是 JDK 1.0 时期的产物，对比 HashMap
 
 1. 继承结构不同，Hashtable 继承 Dictionary，HashMap 继承 AbstractMap
 2. Hashtable 不支持 `null` 作为 key 和 value
-3. Hashtable 默认大小是 `11`，扩大逻辑是 `*2+1`，对于给定大小不会做扩展
+3. Hashtable 默认大小是 `11`，负载因子 `0.75`，扩大逻辑是 `*2+1`，对于给定大小不会做扩展
 4. Hashtable 索引计算采用除法取余数，更低效
 5. Hashtable 使用链表法作为哈希冲突的解决，没有红黑树优化
 6. Hashtable 是线程安全的
+7. HashMap 中的 Iterator 迭代器是 fail-fast 的，而 Hashtable 的 Enumerator 不是 fail-fast 的
 
 ```java
 Hashtable()  // 11, 0.75
