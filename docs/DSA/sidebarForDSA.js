@@ -69,6 +69,7 @@ module.exports = [
 	  children:[
 	  	'/DSA/Design/LRU',
 	  	'/DSA/Design/LFU',
+	  	'/DSA/Design/CircularQueue',
 	  ]
 	},
 ]

@@ -5,6 +5,7 @@ module.exports = [
 	  sidebarDepth: 1,
 	  children:[
 	  	'/Java/JavaH/notes/Java进阶/Java进阶-1 注解',
+	  	'/Java/JavaH/notes/Java进阶/Java进阶-2 反射',
 	  ]
 	},
 	{

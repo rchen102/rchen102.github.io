@@ -178,3 +178,15 @@ LIMIT 开始的索引,每页查询的条数;
 SELECT * FROM student LIMIT 0,3;    -- 第1页
 SELECT * FROM student LIMIT 3,3;    -- 第2页
 ```
+
+## CASE
+```sql
+SELECT name,
+ CASE
+  WHEN imdb_rating > 8 THEN 'Fantastic'
+  WHEN imdb_rating > 6 THEN 'Poorly Received'
+  ELSE 'Avoid at All Costs'
+ END AS 'Review'
+FROM movies;
+
+```
