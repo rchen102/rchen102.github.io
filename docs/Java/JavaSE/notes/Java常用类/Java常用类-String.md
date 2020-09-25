@@ -61,6 +61,7 @@ class Demo {
 
 **使用 new 关键字创建字符串**  
 - 前面类加载的过程都是类似的，只是在运行时，无论字符串池中是否有值相等的对象，都会在 Heap 中开辟一块内存，创建新对象
+- `new String("123")` 实际创建了两个字符串对象，`“123”` 会创建一个字符串对象驻留常量池
 
 **字符串拼接**  
 - String 类重载了 `+`，`+=`，可以用于字符串拼接
@@ -82,6 +83,13 @@ public static void main(String[] args) {
     System.out.println(s1 == s2);
     // JDK1.6  false
     // JDK1.7+ true
+    
+    String s3 = new String("a");  // 这里其实已经创建一个 "a" 入池了
+    s3.intern();
+    String s4 = "a";
+    System.out.println(s3 == s4);
+    // JDK1.6 false
+    // JDK1.7+ false
 }
 ```
 

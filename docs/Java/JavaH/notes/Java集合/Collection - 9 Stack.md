@@ -19,6 +19,7 @@ public class Stack<E> extends Vector<E> {
 - Stack 继承 Vector，Vector 属于早期的集合产物，效率较低，现在已经不再推荐使用
 - Stack 和 Vector 的关系设计的非常糟糕，不应是继承关系，而应该是组合关系
 - Vector 属于动态数组，有能力在数组的任何位置添加/删除元素，Stack 继承了 Vector 因此也有这样的能力
+- Stack 的 Iterator 甚至是按照数组的方式来遍历 Stack
 
 ::: tip 面向接口编程
 - 对比 Stack 设计，Queue 接口的设计更加合理
