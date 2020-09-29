@@ -124,6 +124,6 @@ private static int partition(int[] arr, int lo, int hi) {
         }
     }
     swap(arr, i, hi);
-    return i-1;
+    return i;
 }
 ```

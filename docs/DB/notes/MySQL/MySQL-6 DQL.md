@@ -170,13 +170,16 @@ SELECT sex, AVG(math), COUNT(id) FROM student GROUP BY sex HAVING COUNT(id) > 2;
 
 ## 分页查询
 `LIMIT`是一个MySQL「方言」
+
+第一个参数表示从该参数的下一条数据开始，第二个参数表示每次返回的数据条数
+
 ```sql
 # 语法
 LIMIT 开始的索引,每页查询的条数;
 
 # 每页显示3条记录
-SELECT * FROM student LIMIT 0,3;    -- 第1页
-SELECT * FROM student LIMIT 3,3;    -- 第2页
+SELECT * FROM student LIMIT 0,3;    -- 第1页，返回 1，2，3
+SELECT * FROM student LIMIT 3,3;    -- 第2页，返回 4，5，6
 ```
 
 ## CASE

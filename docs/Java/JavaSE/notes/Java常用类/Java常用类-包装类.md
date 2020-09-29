@@ -6,7 +6,7 @@ categories:
 tags:
 ---
 ## 介绍
-`Object`类型可以保存所有的引用数据类型，在`JDK1.5`之后，`Object`类型也可以「保存」基本数据类型，依据的就是包装类
+`Object` 类型可以保存所有的引用数据类型，在`JDK1.5`之后，`Object`类型也可以「保存」基本数据类型，依据的就是包装类
 
 ::: tip 基本数据类型与引用数据类型差别
 - 基本数据类型使用值传递
@@ -85,9 +85,10 @@ public Integer(int value);
 原因在于JDK1.7之后，Java给`Integer`类设置了`[-128,127]`的静态缓存
 :::
 
-```java{2,5}
+```java{2,6}
 Integer obj = 10;   
-Integer obj = Integer.valueOf(10);          // 向Integer直接赋值时，实际调用了valueOf()
+Integer obj3 = Integer.valueOf(10);          // 向Integer直接赋值时，实际调用了valueOf()
+Integer obj2 = new Integer(10);              // 这个会创建新的引用，obj2 == obj 返回 false
 
 public static Integer valueOf(int i) {     
     if(i >= -128 && i <= IntegerCache.high) // 关键
